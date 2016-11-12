@@ -1651,15 +1651,647 @@ class Windows10SystemAuditor:
         enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return enabled       
 
+    def rsd_passwd_prompt_required(self):
+        """
+        Check SV-78223r1_rule: Remote Desktop Services must always prompt a client for passwords upon connection.
+
+
+        Finding ID: V-63733
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
+        key_val = "fPromptForPassword"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled            
+
+    def remote_desktop_session_hosts_local_drive_disabled(self):
+        """
+        Check SV-78221r1_rule: Local drives must be prevented from sharing with Remote Desktop Session Hosts.
+
+        Finding ID: V-63731
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
+        key_val = "fDisableCdm"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled            
+
+    def outgoing_traffic_secured(self):
+        """
+        Check SV-78129r1_rule: Outgoing secure channel traffic must be encrypted or signed.
+
+        Finding ID: V-63639
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
+        key_val = "RequireSignOrSeal"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled          
+
+    def pin_signin_disabled(self):
+        """
+        Check SV-78127r1_rule: Signing in using a PIN must be turned off.
+
+
+        Finding ID: V-63637
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\System"
+        key_val = "AllowDomainPINLogon"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled          
+
+
+    def local_user_enumeration_disabled(self):
+        """
+        Check SV-78123r1_rule: Local users on domain-joined computers must not be enumerated.
+
+
+        Finding ID: V-63633
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\System"
+        key_val = "EnumerateLocalUsers"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def emet_banned_functions_disabled(self):
+        """
+        Check SV-77923r2_rule: The Enhanced Mitigation Experience Toolkit (EMET) Default Actions and Mitigations Settings must enable Banned Functions.
+
+
+        Finding ID: V-63433
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\EMET\SysSettings"
+        key_val = "BannedFunctions"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def onedrive_storage_disabled(self):
+        """
+        Check SV-78215r1_rule: The use of OneDrive for storage must be disabled.
+
+
+        Finding ID: V-63725
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\OneDrive"
+        key_val = "DisableFileSyncNGSC"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled    
+
+
+    def audit_policy_subcategories_enabled(self):
+        """
+        Check SV-78125r1_rule: The use of OneDrive for storage must be disabled.
+
+
+        Finding ID: V-63635
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
+        key_val = "SCENoApplyLegacyAuditPolicy"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled    
+
+    def ldap_client_signing_level_set(self):
+        """
+        Check SV-78293r1_rule: The use of OneDrive for storage must be disabled.
+
+
+        Finding ID: V-63803
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\LDAP"
+        key_val = "LDAPClientIntegrity"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled    
+
+
+    def ntlm_ssp_client_session_security_configuered(self):
+        """
+        Check SV-78295r1_rule: The system must be configured to meet the minimum session security requirement for NTLM SSP based clients.
+
+
+        Finding ID:  V-63805
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0"
+        key_val = "NTLMMinClientSec"
+        val = 537395200
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled     
+
+    def ntlm_ssp_server_session_security_configuered(self):
+        """
+        Check SV-78297r1_rule: The system must be configured to meet the minimum session security requirement for NTLM SSP based clients.
+
+
+        Finding ID: V-63807
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0"
+        key_val = "NTLMMinServerSec"
+        val = 537395200
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled    
 
 
 
+    def winrm_digest_authentication_disabled(self):
+        """
+        Check SV-77831r1_rule: The system must be configured to meet the minimum session security requirement for NTLM SSP based clients.
+
+
+        Finding ID:  V-63341
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Client"
+        key_val = "AllowDigest"
+        val = 537395200
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled    
+
+    def command_line_creation_event_logged(self):
+        """
+        Check SV-83409r1_rule: Command line data must be included in process creation events.
+
+
+        Finding ID: V-68817
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit"
+        key_val = "ProcessCreationIncludeCmdLine"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled    
+
+
+    def uac_approval_mode_enabled(self):
+        """
+        Check SV-78307r1_rule: User Account Control approval mode for the built-in Administrator must be enabled.
+
+
+        Finding ID: V-63817
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = "FilterAdministratorToken"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled    
+
+    def ac_sleep_wakeup_password_required(self):
+        """
+        Check SV-78139r1_rule: The user must be prompted for a password on resume from sleep (plugged in).
+
+
+        Finding ID: V-63649
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51"
+        key_val = "ACSettingIndex"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+    def case_insensitivity_required(self):
+        """
+        Check SV-78303r1_rule: The system must be configured to require case insensitivity for non-Windows subsystems.
+
+
+        Finding ID:  V-63813
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Control\Session Manager\Kernel"
+        key_val = "ObCaseInsensitive"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+    def fips_compliant_algorithims_set(self):
+        """
+        Check SV-78301r1_rule: The system must be configured to use FIPS-compliant algorithms for encryption, hashing, and signing.
+
+
+        Finding ID:  V-63811
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy"
+        key_val = "Enabled"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+    def outgoing_secure_traffic_encrypted(self):
+        """
+        Check SV-78133r1_rule: Outgoing secure channel traffic must be encrypted when possible.
+
+
+        Finding ID: V-63643
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
+        key_val = "SealSecureChannel"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+
+    def untrusted_fonts_blocked(self):
+        """
+        Check SV-78131r1_rule: The system must be configured to block untrusted fonts from loading.
+
+
+        Finding ID: V-63641
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\MitigationOptions"
+        key_val = "MitigationOptions_FontBocking"
+        val =  1000000000000 
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+    def outgoing_traffic_signed(self):
+        """
+        Check SV-78137r1_rule: Outgoing secure channel traffic must be signed when possible.
 
 
 
+        Finding ID: V-63641
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
+        key_val = "SignSecureChannel"
+        val =  1 
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+    def remote_desktop_client_password_unsaved(self):
+        """
+        Check SV-78219r1_rule: Passwords must not be saved in the Remote Desktop Client.
 
 
 
+        Finding ID: V-63729
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
+        key_val = "DisablePasswordSaving"
+        val =  1 
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+
+    def dc_sleep_wakeup_password_required(self):
+        """
+        Check SV-78135r1_rule: Users must be prompted for a password on resume from sleep (on battery).
+
+
+        Finding ID:  V-63645
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51"
+        key_val = "DCSettingIndex"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+
+    def admin_consent_prompt_enabled(self):
+        """
+        Check SV-78309r1_rule: Users must be prompted for a password on resume from sleep (on battery).
+
+
+        Finding ID: V-63819
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = "ConsentPromptBehaviorAdmin"
+        val = 2
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+
+    def machine_lockout_enabled(self):
+        """
+        Check SV-78447r1_rule: Users must be prompted for a password on resume from sleep (on battery).
+
+
+        Finding ID: V-63957
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = "MaxDevicePasswordFailedAttempts"
+        val = 10
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+    def http_printing_disabled(self):
+        """
+        Check SV-78113r1_rule: Printing over HTTP must be prevented.
+
+
+
+        Finding ID: V-63623
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Printers"
+        key_val = "DisableHTTPPrinting"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled      
+
+
+    def restart_automatic_signin_disabled(self):
+        """
+        Check SV-78113r1_rule: Printing over HTTP must be prevented.
+
+
+
+        Finding ID: V-63623
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = "DisableAutomaticRestartSignOn"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled    
+
+    def winrm_client_unencrypted_traffic_disabled(self):
+        """
+        Check SV-77829r1_rule: The Windows Remote Management (WinRM) client must not allow unencrypted traffic.
+
+        Finding ID:  V-63339
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Client"
+        key_val = "AllowUnencryptedTraffic"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def optional_accounts_enabled(self):
+        """
+        Check SV-78149r1_rule: The setting to allow Microsoft accounts to be optional for modern style apps must be enabled.
+
+        Finding ID: V-63659
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = "MSAOptional"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled        
+
+    def session_suspension_time_set(self):
+        """
+        Check SV-78205r1_rule: The amount of idle time required before suspending a session must be configured to 15 minutes or less.
+
+        Finding ID: V-63715
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
+        key_val = "autodisconnect"
+        val = 15
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled        
+
+    def password_reset_enabled(self):
+        """
+        Check SV-78143r1_rule: The computer account password must not be prevented from being reset.
+
+        Finding ID: V-63653
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
+        key_val = "DisablePasswordChange"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled        
+
+    def password_age_configured(self):
+        """
+        Check SV-78143r1_rule: The computer account password must not be prevented from being reset.
+
+        Finding ID: V-63653
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
+        key_val = "MaximumPasswordAge"
+        val = 30
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled   
+
+    def apci_data_collection_disabled(self):
+        """
+        Check SV-78153r1_rule: The Application Compatibility Program Inventory must be prevented from collecting data and sending the information to Microsoft.
+
+        Finding ID: V-63663
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\AppCompat"
+        key_val = "DisableInventory"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def login_cache_limited(self):
+        """
+        Check SV-78177r1_rule: Caching of logon credentials must be limited.
+
+
+        Finding ID: V-63687
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+        key_val = " CachedLogonsCount"
+        val = 10
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def forced_logoff_enabled(self):
+        """
+        Check SV-78217r1_rule: Users must be forcibly disconnected when their logon hours expire.
+
+
+        Finding ID:  V-63727
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
+        key_val = " enableforcedlogoff"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def heap_termination_turnoff_disabled(self):
+        """
+        Check SV-78217r1_rule: Users must be forcibly disconnected when their logon hours expire.
+
+        Finding ID: V-63691
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Explorer"
+        key_val = " NoHeapTerminationOnCorruption"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+    
+
+    def domain_controller_authentication_not_required(self):
+        """
+        Check SV-78183r1_rule: Users must be forcibly disconnected when their logon hours expire.
+
+        Finding ID: V-63693
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+        key_val = "ForceUnlockLogon"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def imcp_redirect_enabled(self):
+        """
+        Check SV-78183r1_rule: Users must be forcibly disconnected when their logon hours expire.
+
+        Finding ID: V-63693
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters"
+        key_val = "EnableICMPRedirect"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def netbios_name_ignored(self):
+        """
+        Check SV-78057r1_rule: The system must be configured to ignore NetBIOS name release requests except from WINS servers.
+
+        Finding ID: V-63567
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\Netbt\Parameters"
+        key_val = "NoNameReleaseOnDemand"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def toast_notification_disabled(self):
+        """
+        Check SV-78329r1_rule: Toast notifications to the lock screen must be turned off.
+
+        Finding ID: V-63839
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications"
+        key_val = "NoToastApplicationNotificationOnLockScreen"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def global_system_objets_permissions_disabeled(self):
+        """
+        Check SV-80171r1_rule: Windows Update must not obtain updates from other PCs on the Internet.
+
+        Finding ID: V-65681
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Control\Session Manager"
+        key_val = "ProtectionMode"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
 
 
 if __name__ == "__main__":
