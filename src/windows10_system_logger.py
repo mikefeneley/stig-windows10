@@ -4,15 +4,14 @@
 DEFAULT_CONFIG = "Windows10SystemLog.txt"
 
 class Windows10SystemLogger:
-    """Windows10SystemLogger writes error messages to the Windows 10 System log file
-    for every rule in the JRE STIG that is violated.
+    """Windows10SystemLogger writes error messages to the Windows10 System log file for every rule in the Windows10 STIG that is violated.
     """
 
     def __init__(self, filename=DEFAULT_CONFIG):
         self.filename = filename
         self.log = open(filename, 'w')
         self.log.write("#########################\n\n")
-        self.log.write("JRE Audit Findings\n\n")
+        self.log.write("Windows10 System Audit Findings\n\n")
     
     def __del__(self):
         print("Write out")
