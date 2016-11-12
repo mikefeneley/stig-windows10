@@ -1049,6 +1049,618 @@ class Windows10SystemAuditor:
         return enabled     
 
 
+    def pin_length_configuered(self):
+        """
+        Check SV-78211r1_rule: The minimum pin length for Microsoft Passport for Work must be 6 characters or greater.
+
+        Finding ID: V-63721
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity\Consent"
+        key_val = "MinimumPINLength"
+        val = 6
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled     
+    
+    def encrypted_indexing_disabled(self):
+        """
+        Check SV-78241r1_rule: Indexing of encrypted files must be turned off.
+
+        Finding ID: V-63751
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Search"
+        key_val = "AllowIndexingEncryptedStoresOrItems"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled   
+
+    def password_storage_disabled(self):
+        """
+        Check SV-78243r1_rule: The system must be configured to prevent the storage of passwords and credentials.
+
+        Finding ID:  V-63753
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
+        key_val = "DisableDomainCreds"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled   
+
+
+    def elevated_network_domain_privlidge_disabled(self):
+        """
+        Check SV-78087r1_rule: Local administrator accounts must have their privileged token filtered to prevent elevated privileges from being used over the network on domain systems.
+
+        Finding ID: V-63597
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = "LocalAccountTokenFilterPolicy"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled   
+
+    def http_printer_driver_dl_disabled(self):
+        """
+        Check SV-78105r1_rule: Downloading print driver packages over HTTP must be prevented.
+
+        Finding ID: V-63615
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Printers"
+        key_val = "DisableWebPnPDownload"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled   
+
+    def blank_passwd_accounts_disabled(self):
+        """
+        Check SV-78107r1_rule: Local accounts with blank passwords must be restricted to prevent access from the network.
+
+        Finding ID:  V-63617
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
+        key_val = "LimitBlankPasswordUse"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def wifi_sense_disabled(self):
+        """
+        Check SV-78081r1_rule: Wi-Fi Sense must be disabled.
+
+        Finding ID: V-63591
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config"
+        key_val = "AutoConnectAllowedOEM"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+    def emet_antidetours_set(self):
+        """
+        Check SV-77915r2_rule: The Enhanced Mitigation Experience Toolkit (EMET) Default Actions and Mitigations Settings must enable Anti Detours.
+
+
+        Finding ID: V-63425
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\EMET\SysSettings"
+        key_val = "AntiDetours"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+    def uac_admin_mode_enabled(self):
+        """
+        Check SV-78319r1_rule: User Account Control must run all administrators in Admin Approval Mode, enabling UAC.
+
+
+        Finding ID:  V-63829
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = "EnableLUA"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+    def sys_event_log_size_configuered(self):
+        """
+        Check SV-78017r1_rule: The System event log size must be configured to 32768 KB or greater.
+
+
+        Finding ID: V-63527
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\EventLog\System"
+        key_val = " MaxSize"
+        val = 32768
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def uac_elevate_restricted(self):
+        """
+        Check SV-78317r1_rule: User Account Control must only elevate UIAccess applications that are installed in secure locations.
+
+
+        Finding ID:  V-63827
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = " EnableSecureUIAPaths"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+
+    def uac_installer_detection_enabled(self):
+        """
+        Check SV-78315r1_rule: User Account Control must be configured to detect application installations and prompt for elevation.
+
+
+        Finding ID: V-63825
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = " EnableInstallerDetection"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def kerberos_encrypt_configuered(self):
+        """
+        Check SV-78315r1_rule: User Account Control must be configured to detect application installations and prompt for elevation.
+
+
+        Finding ID: V-63825
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters"
+        key_val = "SupportedEncryptionTypes"
+        val = 2147483640
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled   
+
+
+    def smb_packet_signing_required(self):
+        """
+        Check SV-78213r1_rule: The Windows SMB server must perform SMB packet signing when possible.
+
+
+        Finding ID: V-63723
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
+        key_val = "SupportedEncryptionTypes"
+        val = 1 
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled           
+
+
+    def error_report_ssl_required(self):
+        """
+        Check SV-78015r1_rule: The system must be configured to use SSL to forward error reports.
+
+
+        Finding ID: V-63525
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
+        key_val = "CorporateWerUseSSL"
+        val = 1 
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+    def domain_joined_computers_unenumerated(self):
+        """
+        Check SV-78015r1_rule: The system must be configured to use SSL to forward error reports.
+
+
+        Finding ID: V-63525
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\System"
+        key_val = "DontEnumerateConnectedUsers"
+        val = 1 
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def max_error_queue_reports_set(self):
+        """
+        Check SV-78051r1_rule: The system must be configured to use SSL to forward error reports.
+
+
+        Finding ID: V-63561
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
+        key_val = "MaxQueueCount"
+        val = 50 
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+    def security_event_log_size_configuered(self):
+        """
+        Check SV-78051r1_rule: The system must be configured to use SSL to forward error reports.
+
+
+        Finding ID: V-63561
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\EventLog\Security"
+        key_val = "MaxSize"
+        val = 196608 
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def rss_feed_attachements_disabled(self):
+        """
+        Check SV-78233r1_rule: Attachments must be prevented from being downloaded from RSS feeds.
+
+
+        Finding ID: V-63743
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Internet Explorer\Feeds"
+        key_val = "DisableEnclosureDownload"
+        val = 1 
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+    def admin_account_elevation_enumeration_disabled(self):
+        """
+        Check SV-78169r1_rule: Administrator accounts must not be enumerated during elevation
+
+
+        Finding ID:  V-63679
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI"
+        key_val = "EnumerateAdministrators"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+    def user_errmsg_disabled(self):
+        """
+        Check SV-77995r1_rule: Administrator accounts must not be enumerated during elevation
+
+
+        Finding ID: V-63505
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
+        key_val = "DontShowUI"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def ignore_edge_warnings_disabled(self):
+        """
+        Check SV-78189r1_rule: Users must not be allowed to ignore SmartScreen filter warnings for malicious websites in Microsoft Edge.
+
+
+        Finding ID:  V-63699
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter"
+        key_val = "PreventOverride"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+    def wizard_provider_dl_disabled(self):
+        """
+        Check SV-78189r1_rule: Users must not be allowed to ignore SmartScreen filter warnings for malicious websites in Microsoft Edge.
+
+
+        Finding ID:  V-63699
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+        key_val = "NoWebServices"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+    def nondomain_domain_network_blocked(self):
+        """
+        Check SV-78075r1_rule: Connections to non-domain networks when connected to a domain authenticated network must be blocked.
+
+
+        Finding ID:   V-63585
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy"
+        key_val = "fBlockNonDomain"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+    def nui_disabled(self):
+        """
+        Check SV-78119r1_rule: The network selection user interface (UI) must not be displayed on the logon screen.
+
+
+        Finding ID: V-63629
+        
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\System"
+        key_val = "DontDisplayNetworkSelectionUI"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+
+
+    def rds_encryption_level_set(self):
+        """
+        Check SV-78231r1_rule: Remote Desktop Services must be configured with the client connection encryption set to the required level.
+
+
+        Finding ID: V-63741
+        
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
+        key_val = "MinEncryptionLevel"
+        val = 3
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+
+    def rds_encryption_level_set(self):
+        """
+        Check SV-78231r1_rule: Remote Desktop Services must be configured with the client connection encryption set to the required level.
+
+
+        Finding ID: V-63741
+        
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
+        key_val = "MinEncryptionLevel"
+        val = 3
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+
+    def screen_saver_passwd_required(self):
+        """
+        Check SV-78231r1_rule: Remote Desktop Services must be configured with the client connection encryption set to the required level.
+
+
+        Finding ID: V-63741
+        
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop"
+        key_val = "ScreenSaverIsSecure"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+
+    def uac_virtalilzation_set(self):     
+        """
+        Check SV-78321r1_rule: User Account Control must virtualize file and registry write failures to per-user locations.
+
+        Finding ID:  V-63831
+        
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = "EnableVirtualization"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+
+    def daily_error_reports_required(self):
+        """
+        Check SV-78055r1_rule: The system must be configured to attempt to forward queued error reports once a day.
+
+        Finding ID: V-63565
+        
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
+        key_val = "QueuePesterInterval"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled 
+
+
+    def annonymous_users_excluded(self):
+        """
+        Check SV-78055r1_rule: The system must be configured to attempt to forward queued error reports once a day.
+
+        Finding ID: V-63565
+        
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
+        key_val = "EveryoneIncludesAnonymous"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def error_report_archive_configuered(self):
+        """
+        Check SV-78029r1_rule: The system must be configured to store all data in the error report archive.
+
+
+        Finding ID: V-63539
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
+        key_val = "ConfigureArchive"
+        val = 2
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled   
+
+
+    def uac_elevation_requests_disabled(self):
+        """
+        Check SV-78029r1_rule: The system must be configured to store all data in the error report archive.
+
+
+        Finding ID: V-63539
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        key_val = "ConsentPromptBehaviorUser"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled   
+
+    def smb_insecure_login_disabled(self):
+        """
+        Check SV-78059r1_rule: Insecure logons to an SMB server must be disabled.
+
+        Finding ID:  V-63569
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\LanmanWorkstation"
+        key_val = "AllowInsecureGuestAuth"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def error_reports_archived(self):
+        """
+        Check SV-78059r1_rule: Insecure logons to an SMB server must be disabled.
+
+        Finding ID:  V-63569
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
+        key_val = "DisableArchive"
+        val = 0
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled
+
+    def remote_desktop_host_secure_rpc_required(self):
+        """
+        Check SV-78227r1_rule: The Remote Desktop Session Host must require secure RPC communications.
+
+        Finding ID:  V-63737
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
+        key_val = "fEncryptRPCTraffic"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled       
+
+    def spn_client_accept_configuered(self):
+        """
+        Check SV-78225r1_rule: The service principal name (SPN) target name validation level must be configured to Accept if provided by client.
+
+
+        Finding ID: V-63735
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters"
+        key_val = "SmbServerNameHardeningLevel"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled       
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
         auditor = Windows10SystemAuditor()
