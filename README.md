@@ -276,4 +276,4 @@ SV-80171r1_rule, V-65681
 
 The program can be run using the command line. Navigate to the src folder after downloading and execute program with the following command:
 
-python windows_auditor.py
+<i>python windows_auditor.py</i>
