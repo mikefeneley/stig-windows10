@@ -1,5 +1,7 @@
 # stig_windows10
 
+<b>Introduction</b>
+
 This program checks a subset of the configuration requirements of the DISA Windows 10 STIG. If any of the rules are violated, information about the violated rule is written to a configuration file for user review.
 
 
