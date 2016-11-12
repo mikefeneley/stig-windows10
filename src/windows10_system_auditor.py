@@ -34,8 +34,8 @@ class Windows10SystemAuditor:
         logger.sam_anonymous_enumeration_disabled_errmsg(result)
         result = self.sehop_disabled()
         logger.sehop_disabled_errmsg(result)
-        result = self.recovery_console_enabled()
-        logger.recovery_console_enabled_errmsg(result)
+        result = self.recovery_console_compare()
+        logger.recovery_console_compare_errmsg(result)
         result = self.lanman_auth_level_set()
         logger.lanman_auth_level_set_errmsg(result)
         result = self.winrm_service_basic_auth_disabled()
@@ -50,10 +50,10 @@ class Windows10SystemAuditor:
         logger.emet_deephooks_set_errmsg(result)
         result = self.unencrypted_passwd_smb_disabled()
         logger.unencrypted_passwd_smb_disabled_errmsg(result)
-        result = self.smartscreen_filter_enabled()
-        logger.smartscreen_filter_enabled_errmsg(result)
-        result = self.hardware_device_pfw_enabled()
-        logger.hardware_device_pfw_enabled_errmsg(result)
+        result = self.smartscreen_filter_compare()
+        logger.smartscreen_filter_compare_errmsg(result)
+        result = self.hardware_device_pfw_compare()
+        logger.hardware_device_pfw_compare_errmsg(result)
         result = self.smb_packet_signing_set()
         logger.smb_packet_signing_set_errmsg(result)
         result = self.client_rpc_authentication_set()
@@ -64,8 +64,8 @@ class Windows10SystemAuditor:
         logger.application_event_log_size_set_errmsg(result)
         result = self.user_installation_option_disabled()
         logger.user_installation_option_disabled_errmsg(result)
-        result = self.powershell_script_block_logging_enabled()
-        logger.powershell_script_block_logging_enabled_errmsg(result)
+        result = self.powershell_script_block_logging_compare()
+        logger.powershell_script_block_logging_compare_errmsg(result)
         result = self.tcp_port_set()
         logger.tcp_port_set_errmsg(result)
         result = self.strong_session_key_required()
@@ -88,8 +88,8 @@ class Windows10SystemAuditor:
         logger.automatic_logon_disabled_errmsg(result)
         result = self.ipv6_routing_protection_configured()
         logger.ipv6_routing_protection_configured_errmsg(result)
-        result = self.screen_saver_enabled()
-        logger.screen_saver_enabled_errmsg(result)
+        result = self.screen_saver_compare()
+        logger.screen_saver_compare_errmsg(result)
         result = self.ip_source_routing_disabled()
         logger.ip_source_routing_disabled_errmsg(result)
         result = self.multiple_error_reports_set()
@@ -148,14 +148,14 @@ class Windows10SystemAuditor:
         logger.wifi_sense_disabled_errmsg(result)
         result = self.emet_antidetours_set()
         logger.emet_antidetours_set_errmsg(result)
-        result = self.uac_admin_mode_enabled()
-        logger.uac_admin_mode_enabled_errmsg(result)
+        result = self.uac_admin_mode_compare()
+        logger.uac_admin_mode_compare_errmsg(result)
         result = self.sys_event_log_size_configuered()
         logger.sys_event_log_size_configuered_errmsg(result)
         result = self.uac_elevate_restricted()
         logger.uac_elevate_restricted_errmsg(result)
-        result = self.uac_installer_detection_enabled()
-        logger.uac_installer_detection_enabled_errmsg(result)
+        result = self.uac_installer_detection_compare()
+        logger.uac_installer_detection_compare_errmsg(result)
         result = self.kerberos_encrypt_configuered()    
         logger.kerberos_encrypt_configuered_errmsg(result)
         result = self.smb_packet_signing_required()
@@ -218,8 +218,8 @@ class Windows10SystemAuditor:
         logger.emet_banned_functions_disabled_errmsg(result)
         result = self.onedrive_storage_disabled()
         logger.onedrive_storage_disabled_errmsg(result)
-        result = self.audit_policy_subcategories_enabled()
-        logger.audit_policy_subcategories_enabled_errmsg(result)
+        result = self.audit_policy_subcategories_compare()
+        logger.audit_policy_subcategories_compare_errmsg(result)
         result = self.ldap_client_signing_level_set()
         logger.ldap_client_signing_level_set_errmsg(result)
         result = self.ntlm_ssp_client_session_security_configuered()
@@ -230,8 +230,8 @@ class Windows10SystemAuditor:
         logger.winrm_digest_authentication_disabled_errmsg(result)
         result = self.command_line_creation_event_logged()
         logger.command_line_creation_event_logged_errmsg(result)
-        result = self.uac_approval_mode_enabled()
-        logger.uac_approval_mode_enabled_errmsg(result)
+        result = self.uac_approval_mode_compare()
+        logger.uac_approval_mode_compare_errmsg(result)
         result = self.ac_sleep_wakeup_password_required()
         logger.ac_sleep_wakeup_password_required_errmsg(result)
         result = self.case_insensitivity_required()
@@ -247,10 +247,10 @@ class Windows10SystemAuditor:
         result = self.remote_desktop_client_password_unsaved()
         logger.dc_sleep_wakeup_password_required_errmsg(result)
         result = self.dc_sleep_wakeup_password_required()   
-        logger.admin_consent_prompt_enabled_errmsg(result)
-        result = self.admin_consent_prompt_enabled()
-        logger.machine_lockout_enabled_errmsg(result)
-        result = self.machine_lockout_enabled()
+        logger.admin_consent_prompt_compare_errmsg(result)
+        result = self.admin_consent_prompt_compare()
+        logger.machine_lockout_compare_errmsg(result)
+        result = self.machine_lockout_compare()
         logger.http_printing_disabled_errmsg(result)
         result = self.http_printing_disabled()
         logger.http_printing_disabled_errmsg(result)
@@ -258,26 +258,26 @@ class Windows10SystemAuditor:
         logger.restart_automatic_signin_disabled_errmsg(result)
         result = self.winrm_client_unencrypted_traffic_disabled()
         logger.winrm_client_unencrypted_traffic_disabled_errmsg(result)
-        result = self.optional_accounts_enabled()
-        logger.optional_accounts_enabled_errmsg(result)
+        result = self.optional_accounts_compare()
+        logger.optional_accounts_compare_errmsg(result)
         result = self.session_suspension_time_set()
         logger.session_suspension_time_set_errmsg(result)
-        result = self.password_reset_enabled()
-        logger.password_reset_enabled_errmsg(result)
+        result = self.password_reset_compare()
+        logger.password_reset_compare_errmsg(result)
         result = self.password_age_configured()
         logger.password_age_configured_errmsg(result)
         result = self.apci_data_collection_disabled()
         logger.apci_data_collection_disabled_errmsg(result)
         result = self.login_cache_limited()
         logger.login_cache_limited_errmsg(result)
-        result = self.forced_logoff_enabled()
-        logger.forced_logoff_enabled_errmsg(result)
+        result = self.forced_logoff_compare()
+        logger.forced_logoff_compare_errmsg(result)
         result = self.heap_termination_turnoff_disabled()
         logger.heap_termination_turnoff_disabled_errmsg(result)
         result = self.domain_controller_authentication_not_required()
         logger.domain_controller_authentication_not_required_errmsg(result)
-        result = self.imcp_redirect_enabled()
-        logger.imcp_redirect_enabled_errmsg(result)
+        result = self.imcp_redirect_compare()
+        logger.imcp_redirect_compare_errmsg(result)
         result = self.netbios_name_ignored()
         logger.netbios_name_ignored_errmsg(result)
         result = self.toast_notification_disabled()
@@ -296,13 +296,12 @@ class Windows10SystemAuditor:
 
         :returns: int -- True if criteria met, False otherwise
         """
-
         key = HKEY_LOCAL_MACHINE
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
         key_val = "NoLmHash"
         val = 1
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
         
     def remote_assistance_disabled(self):
         """
@@ -311,14 +310,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63651
 
         :returns: int -- True if criteria met, False otherwise
-        """      
-        
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
         key_val = "fAllowToGetHelp"
         val = 0
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
 
     def windows_installer_elevated_prviliges_disabled(self):
@@ -330,16 +328,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63325
 
         :returns: int -- True if criteria met, False otherwise
-
-        NOTE
-                Add registry key in test and verify it queries correctly.
-        """                             
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
         key_val = "AlwaysInstallElevated"
         val = 0
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def non_volume_autoplay_disabled(self):
         """
@@ -349,15 +344,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63667
 
         :returns: int -- True if criteria met, False otherwise
-        """                             
-
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Explorer"
         key_val = "NoAutoplayfornonVolume"
         val = 1
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def annonymous_pipe_access_restricted(self):
         """
@@ -368,17 +361,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63759
 
         :returns: int -- True if criteria met, False otherwise
-
-        NOTE
-                Add registry key in test and verify it queries correctly.
         """                             
-
         key = HKEY_LOCAL_MACHINE
         subkey = r"SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
         key_val = "RestrictNullSessAccess"
         val = 1
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def drive_autorun_disabled(self):
         """
@@ -387,13 +376,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63673
 
         :returns: int -- True if criteria met, False otherwise
-        """                             
+        """                           
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer"
         key_val = "NoDriveTypeAutoRun"
         val = 255
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def autorun_commands_disabled(self):
         """
@@ -408,9 +397,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
         key_val = "NoAutorun"
         val = 1
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def sam_anonymous_enumeration_disabled(self):
         """
@@ -425,8 +413,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
         key_val = "RestrictAnonymousSAM"
         val = 1
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled                             
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare                             
                
 
     def sehop_disabled(self):
@@ -442,12 +430,10 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Session Manager\kernel"
         key_val = "DisableExceptionChainValidation"
         val = 0
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled  
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare  
         
-
-
-    def recovery_console_enabled(self):
+    def recovery_console_compare(self):
         """
         Check SV-78299r1_rule: The Recovery Console option must be set 
         to prevent automatic logon to the system.
@@ -456,13 +442,12 @@ class Windows10SystemAuditor:
 
         :returns: int -- True if criteria met, False otherwise
         """         
-
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Setup\RecoveryConsole"
         key_val = "SecurityLevel"
         val = 0
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled  
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare  
 
     def lanman_auth_level_set(self):
         """
@@ -473,14 +458,12 @@ class Windows10SystemAuditor:
 
         :returns: int -- True if criteria met, False otherwise
         """           
-
         key = HKEY_LOCAL_MACHINE
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
         key_val = "LmCompatibilityLevel"
         val = 5
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled  
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare  
 
     def winrm_service_basic_auth_disabled(self):
         """
@@ -491,13 +474,12 @@ class Windows10SystemAuditor:
 
         :returns: int -- True if criteria met, False otherwise
         """                    
-
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Service"
         key_val = "AllowBasic"
         val = 5
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled  
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare  
 
     def annonymous_share_enumeration_disabled(self):
         """
@@ -508,13 +490,12 @@ class Windows10SystemAuditor:
 
         :returns: int -- True if criteria met, False otherwise
         """          
-
         key = HKEY_LOCAL_MACHINE
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
         key_val = "RestrictAnonymous"
         val = 1
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled                     
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare                     
 
     def winrm_client_basic_auth_disabled(self):
         """
@@ -524,16 +505,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63335
 
         :returns: int -- True if criteria met, False otherwise
-        """         
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Client"
         key_val =  "AllowBasic"
         val = 0
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled                       
-
-###############################################################################
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare                       
 
     def emet_sehop_optout_set(self):
         """
@@ -544,13 +522,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63411
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\EMET\SysSettings"
         key_val =  "SEHOP"
         val = 2
-        optout_set = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return optout_set        
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare        
 
     def emet_deephooks_set(self):
         """
@@ -561,13 +539,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63391
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\EMET\SysSettings"
         key_val =  "DeepHooks"
         val = 1
-        optout_set = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return optout_set        
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare        
 
     def unencrypted_passwd_smb_disabled(self):
         """
@@ -577,46 +555,45 @@ class Windows10SystemAuditor:
         Finding ID: V-63711
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters"
         key_val =  "EnablePlainTextPassword"
         val = 0
-        disabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return disabled        
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare        
 
-    def smartscreen_filter_enabled(self):
+    def smartscreen_filter_compare(self):
         """
         Check SV-78203r1_rule: The SmartScreen filter for Microsoft Edge 
-        must be enabled.
+        must be compare.
 
         Finding ID: V-63713
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter"
-        key_val = "EnabledV9"
+        key_val = "compareV9"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled        
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare        
 
-    def hardware_device_pfw_enabled(self):
+    def hardware_device_pfw_compare(self):
         """
         Check SV-78207r2_rule: The SmartScreen filter for Microsoft Edge 
-        must be enabled.
+        must be compare.
 
         Finding ID: V-63717
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\PassportForWork"
         key_val = "RequireSecurityDevice"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled            	
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare            	
 
     def smb_packet_signing_set(self):
         """
@@ -626,47 +603,45 @@ class Windows10SystemAuditor:
         Finding ID: V-63719
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
         key_val = "RequireSecuritySignature"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def client_rpc_authentication_set(self):
         """
         Check SV-78145r1_rule: Client computers must be required to 
         authenticate for RPC communication.
 
-
         Finding ID: V-63655
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Rpc"
         key_val = "REG_DWORD"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def unauthenticated_rpc_elient_restricted(self):
         """
         Check SV-78147r1_rule: Unauthenticated RPC clients must be 
         restricted from connecting to the RPC server.
 
-
         Finding ID: V-63657
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Rpc"
         key_val = "RestrictRemoteClients"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
     
     def application_event_log_size_set(self):
         """
@@ -676,14 +651,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63519
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\EventLog\Application"
         key_val = "MaxSize"
         val = 32768
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def user_installation_option_disabled(self):
         """
@@ -693,28 +667,28 @@ class Windows10SystemAuditor:
         Finding ID:  V-63321
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Installer"
         key_val = "MaxSize"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
     
-    def powershell_script_block_logging_enabled(self):
+    def powershell_script_block_logging_compare(self):
         """
-        Check SV-83411r1_rule: PowerShell script block logging must be enabled.
+        Check SV-83411r1_rule: PowerShell script block logging must be compare.
 
         Finding ID: V-68819
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\ Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging"
         key_val = "EnableScriptBlockLogging"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def tcp_port_set(self):
         """
@@ -724,13 +698,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63529
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "CorporateWerPortNumber"
         val = 1232
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def strong_session_key_required(self):
         """
@@ -740,13 +714,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63665
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """	
         key = HKEY_LOCAL_MACHINE
         subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
         key_val = "RequireStrongKey"
         val = 1
-        required = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return required
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def tcp_port_set(self):
         """
@@ -756,13 +730,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63529
 
         :returns: int -- True if criteria met, False otherwise
-        """       	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "CorporateWerPortNumber"
         val = 1232
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def screen_saver_set(self):
         """
@@ -772,13 +746,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63669
 
         :returns: int -- True if criteria met, False otherwise
-        """       	   	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "InactivityTimeoutSecs"
         val = 900
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def error_reports_generated(self):
         """
@@ -788,13 +762,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63461
 
         :returns: int -- True if criteria met, False otherwise
-        """       	   	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "Disabled"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def smb_packet_signing(self):	
         """
@@ -804,13 +778,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63707
 
         :returns: int -- True if criteria met, False otherwise
-        """       	   	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters"
         key_val = "EnableSecuritySignature"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def inprivate_browsing_disabled(self):	
         """
@@ -820,13 +794,13 @@ class Windows10SystemAuditor:
         Finding ID: V-63705
 
         :returns: int -- True if criteria met, False otherwise
-        """       	   	
+        """
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main"
         key_val = "AllowInPrivate"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def smb_packet_signing_required(self):	
         """
@@ -841,8 +815,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters"
         key_val = "RequireSecuritySignature"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
 
     def app_override_disabled(self):  
@@ -858,8 +832,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter"
         key_val = "PreventOverrideAppRepUnknown"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def automatic_logon_disabled(self):  
         """
@@ -873,8 +847,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
         key_val = "AutoAdminLogon"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
 
     def ipv6_routing_protection_configured(self):  
@@ -890,12 +864,12 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters"
         key_val = "DisableIpSourceRouting"
         val = 2
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
     
-    def screen_saver_enabled(self):  
+    def screen_saver_compare(self):  
         """
-        Check SV-78325r1_rule: A screen saver must be enabled on the system.
+        Check SV-78325r1_rule: A screen saver must be compare on the system.
 
         Finding ID: V-63835
 
@@ -905,8 +879,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop"
         key_val = "ScreenSaveActive"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def ip_source_routing_disabled(self):
         """
@@ -921,8 +895,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters"
         key_val = "DisableIPSourceRouting"
         val = 2
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
     
     def multiple_error_reports_set(self):
         """
@@ -937,14 +911,14 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "BypassDataThrottling"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
 
     def enhanced_antispoofing_set(self):
         """
         Check SV-78167r1_rule: Enhanced anti-spoofing when 
-        available must be enabled for facial recognition.
+        available must be compare for facial recognition.
 
         Finding ID: V-63677
 
@@ -954,13 +928,13 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures"
         key_val = "EnhancedAntiSpoofing"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def winrm_runas_disabled(self):
         """
         Check SV-77865r1_rule: Enhanced anti-spoofing when 
-        available must be enabled for facial recognition.
+        available must be compare for facial recognition.
 
         Finding ID: V-63375
 
@@ -970,8 +944,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Service"
         key_val = "DisableRunAs"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def zone_info_saved(self):
         """
@@ -986,8 +960,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Attachments"
         key_val = "SaveZoneInformation"
         val = 2
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def num_error_reports_configured(self):
         """
@@ -1002,9 +976,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "MaxArchiveCount"
         val = 100
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def lock_screen_camera_access_disabled(self):
         """
@@ -1019,8 +992,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "MaxArchiveCount"
         val = 100
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
     
     def queue_error_reports_disabled(self):
         """
@@ -1035,8 +1008,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "DisableQueue"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
     
     def lock_screen_slide_shows_disabled(self):
         """
@@ -1051,8 +1024,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Personalization"
         key_val = "NoLockScreenSlideshow"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def winrm_unencrypted_traffic_disabled(self):
         """
@@ -1067,10 +1040,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Service"
         key_val = "AllowUnencryptedTraffic"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def smartscreen_admin_aproval_required(self):
         """
@@ -1086,8 +1057,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\System"
         key_val = "EnableSmartScreen"
         val = 2
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def windows_telemetry_data_set(self):
         """
@@ -1103,8 +1074,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\DataCollection"
         key_val = "AllowTelemetry"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def classic_security_model_set(self):
         """
@@ -1119,8 +1090,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
         key_val = "forceguest"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def computer_identity_negotiation_set(self):
         """
@@ -1136,8 +1107,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\LSA"
         key_val = "UseMachineId"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def ntml_null_session_disabled(self):
         """
@@ -1153,8 +1124,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\LSA\MSV1_0"
         key_val = "allownullsessionfallback"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def group_policy_objects_reprocess_set(self):
         """
@@ -1169,9 +1140,8 @@ class Windows10SystemAuditor:
         subkey = r"\SOFTWARE\Policies\Microsoft\Windows\Group Policy\{35378EAC-683F-11D2-A89A-00C04FBBCFA2}"
         key_val = "NoGPOListChanges"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def pku2u_authentication_disabled(self):
         """
@@ -1186,13 +1156,13 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\LSA\pku2u"
         key_val = "AllowOnlineID"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def powershell_script_block_invocation_logging (self):
         """
         Check SV-83413r1_rule: PowerShell script block invocation 
-        logging must be enabled.
+        logging must be compare.
 
         Finding ID: V-68821
 
@@ -1202,8 +1172,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\ Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging"
         key_val = "EnableScriptBlockInvocationLogging"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def all_error_ports_added_to_queue (self):
         """
@@ -1218,8 +1188,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "ForceQueue"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled        
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare        
 
     def consent_override_behavior_set(self):
         """
@@ -1234,8 +1204,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent"
         key_val = " DefaultOverrideBehavior"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled        
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare        
 
     def data_transmission_consent_set(self):
         """
@@ -1251,9 +1221,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent"
         key_val = "DefaultConsent"
         val = 4
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled     
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare     
 
     def pin_length_configuered(self):
         """
@@ -1267,8 +1236,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\PassportForWork\PINComplexity\Consent"
         key_val = "MinimumPINLength"
         val = 6
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled     
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare     
     
     def encrypted_indexing_disabled(self):
         """
@@ -1282,8 +1251,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Search"
         key_val = "AllowIndexingEncryptedStoresOrItems"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled   
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare   
 
     def password_storage_disabled(self):
         """
@@ -1297,9 +1266,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
         key_val = "DisableDomainCreds"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled   
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare   
 
     def elevated_network_domain_privlidge_disabled(self):
         """
@@ -1313,8 +1281,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "LocalAccountTokenFilterPolicy"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled   
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare   
 
     def http_printer_driver_dl_disabled(self):
         """
@@ -1328,8 +1296,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Printers"
         key_val = "DisableWebPnPDownload"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled   
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare   
 
     def blank_passwd_accounts_disabled(self):
         """
@@ -1343,8 +1311,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
         key_val = "LimitBlankPasswordUse"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def wifi_sense_disabled(self):
         """
@@ -1358,9 +1326,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config"
         key_val = "AutoConnectAllowedOEM"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def emet_antidetours_set(self):
         """
@@ -1374,11 +1341,10 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\EMET\SysSettings"
         key_val = "AntiDetours"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
-
-    def uac_admin_mode_enabled(self):
+    def uac_admin_mode_compare(self):
         """
         Check SV-78319r1_rule: User Account Control must run all administrators in Admin Approval Mode, enabling UAC.
 
@@ -1390,9 +1356,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "EnableLUA"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def sys_event_log_size_configuered(self):
         """
@@ -1407,8 +1372,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\EventLog\System"
         key_val = " MaxSize"
         val = 32768
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def uac_elevate_restricted(self):
         """
@@ -1423,12 +1388,10 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = " EnableSecureUIAPaths"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
-
-
-    def uac_installer_detection_enabled(self):
+    def uac_installer_detection_compare(self):
         """
         Check SV-78315r1_rule: User Account Control must be configured to detect application installations and prompt for elevation.
 
@@ -1441,8 +1404,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = " EnableInstallerDetection"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def kerberos_encrypt_configuered(self):
         """
@@ -1457,9 +1420,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters"
         key_val = "SupportedEncryptionTypes"
         val = 2147483640
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled   
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare   
 
     def smb_packet_signing_required(self):
         """
@@ -1474,9 +1436,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
         key_val = "SupportedEncryptionTypes"
         val = 1 
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled           
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare           
 
     def error_report_ssl_required(self):
         """
@@ -1491,8 +1452,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "CorporateWerUseSSL"
         val = 1 
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
 
     def domain_joined_computers_unenumerated(self):
@@ -1508,8 +1469,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\System"
         key_val = "DontEnumerateConnectedUsers"
         val = 1 
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def max_error_queue_reports_set(self):
         """
@@ -1524,8 +1485,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "MaxQueueCount"
         val = 50 
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
 
     def security_event_log_size_configuered(self):
@@ -1541,8 +1502,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\EventLog\Security"
         key_val = "MaxSize"
         val = 196608 
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def rss_feed_attachements_disabled(self):
         """
@@ -1557,9 +1518,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Internet Explorer\Feeds"
         key_val = "DisableEnclosureDownload"
         val = 1 
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def admin_account_elevation_enumeration_disabled(self):
         """
@@ -1574,9 +1534,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI"
         key_val = "EnumerateAdministrators"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def user_errmsg_disabled(self):
         """
@@ -1591,8 +1550,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "DontShowUI"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def ignore_edge_warnings_disabled(self):
         """
@@ -1607,9 +1566,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter"
         key_val = "PreventOverride"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def wizard_provider_dl_disabled(self):
         """
@@ -1624,9 +1582,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
         key_val = "NoWebServices"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def nondomain_domain_network_blocked(self):
         """
@@ -1641,9 +1598,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\WcmSvc\GroupPolicy"
         key_val = "fBlockNonDomain"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def nui_disabled(self):
         """
@@ -1658,10 +1614,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\System"
         key_val = "DontDisplayNetworkSelectionUI"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
-
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def rds_encryption_level_set(self):
         """
@@ -1676,8 +1630,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
         key_val = "MinEncryptionLevel"
         val = 3
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
     def screen_saver_passwd_required(self):
         """
@@ -1692,8 +1646,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Control Panel\Desktop"
         key_val = "ScreenSaverIsSecure"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
 
     def uac_virtalilzation_set(self):     
@@ -1708,8 +1662,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "EnableVirtualization"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
 
     def daily_error_reports_required(self):
@@ -1724,8 +1678,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "QueuePesterInterval"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
 
     def annonymous_users_excluded(self):
@@ -1740,8 +1694,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
         key_val = "EveryoneIncludesAnonymous"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def error_report_archive_configuered(self):
         """
@@ -1756,8 +1710,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "ConfigureArchive"
         val = 2
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled   
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare   
 
 
     def uac_elevation_requests_disabled(self):
@@ -1773,8 +1727,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "ConsentPromptBehaviorUser"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled   
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare   
 
     def smb_insecure_login_disabled(self):
         """
@@ -1788,8 +1742,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\LanmanWorkstation"
         key_val = "AllowInsecureGuestAuth"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def error_reports_archived(self):
         """
@@ -1803,8 +1757,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
         key_val = "DisableArchive"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def remote_desktop_host_secure_rpc_required(self):
         """
@@ -1818,8 +1772,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
         key_val = "fEncryptRPCTraffic"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled       
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare       
 
     def spn_client_accept_configuered(self):
         """
@@ -1834,8 +1788,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters"
         key_val = "SmbServerNameHardeningLevel"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled       
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare       
 
     def rsd_passwd_prompt_required(self):
         """
@@ -1850,8 +1804,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
         key_val = "fPromptForPassword"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled            
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare            
 
     def remote_desktop_session_hosts_local_drive_disabled(self):
         """
@@ -1865,8 +1819,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
         key_val = "fDisableCdm"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled            
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare            
 
     def outgoing_traffic_secured(self):
         """
@@ -1880,8 +1834,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
         key_val = "RequireSignOrSeal"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled          
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare          
 
     def pin_signin_disabled(self):
         """
@@ -1896,8 +1850,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\System"
         key_val = "AllowDomainPINLogon"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled          
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare          
 
 
     def local_user_enumeration_disabled(self):
@@ -1913,8 +1867,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\System"
         key_val = "EnumerateLocalUsers"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def emet_banned_functions_disabled(self):
         """
@@ -1929,8 +1883,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\EMET\SysSettings"
         key_val = "BannedFunctions"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def onedrive_storage_disabled(self):
         """
@@ -1945,11 +1899,11 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\OneDrive"
         key_val = "DisableFileSyncNGSC"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled    
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare    
 
 
-    def audit_policy_subcategories_enabled(self):
+    def audit_policy_subcategories_compare(self):
         """
         Check SV-78125r1_rule: The use of OneDrive for storage must be disabled.
 
@@ -1962,8 +1916,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
         key_val = "SCENoApplyLegacyAuditPolicy"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled    
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare    
 
     def ldap_client_signing_level_set(self):
         """
@@ -1978,8 +1932,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\LDAP"
         key_val = "LDAPClientIntegrity"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled    
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare    
 
 
     def ntlm_ssp_client_session_security_configuered(self):
@@ -1995,8 +1949,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0"
         key_val = "NTLMMinClientSec"
         val = 537395200
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled     
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare     
 
     def ntlm_ssp_server_session_security_configuered(self):
         """
@@ -2011,8 +1965,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0"
         key_val = "NTLMMinServerSec"
         val = 537395200
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled    
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare    
 
 
 
@@ -2029,8 +1983,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Client"
         key_val = "AllowDigest"
         val = 537395200
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled    
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare    
 
     def command_line_creation_event_logged(self):
         """
@@ -2045,13 +1999,13 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Audit"
         key_val = "ProcessCreationIncludeCmdLine"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled    
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare    
 
 
-    def uac_approval_mode_enabled(self):
+    def uac_approval_mode_compare(self):
         """
-        Check SV-78307r1_rule: User Account Control approval mode for the built-in Administrator must be enabled.
+        Check SV-78307r1_rule: User Account Control approval mode for the built-in Administrator must be compare.
 
 
         Finding ID: V-63817
@@ -2062,8 +2016,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "FilterAdministratorToken"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled    
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare    
 
     def ac_sleep_wakeup_password_required(self):
         """
@@ -2078,8 +2032,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51"
         key_val = "ACSettingIndex"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
     def case_insensitivity_required(self):
         """
@@ -2094,8 +2048,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Session Manager\Kernel"
         key_val = "ObCaseInsensitive"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
     def fips_compliant_algorithims_set(self):
         """
@@ -2108,10 +2062,10 @@ class Windows10SystemAuditor:
         """             
         key = HKEY_LOCAL_MACHINE
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy"
-        key_val = "Enabled"
+        key_val = "compare"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
     def outgoing_secure_traffic_encrypted(self):
         """
@@ -2126,8 +2080,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
         key_val = "SealSecureChannel"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
 
     def untrusted_fonts_blocked(self):
@@ -2142,8 +2096,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\MitigationOptions"
         key_val = "MitigationOptions_FontBocking"
         val =  1000000000000 
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
     def outgoing_traffic_signed(self):
         """
@@ -2157,8 +2111,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
         key_val = "SignSecureChannel"
         val =  1 
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
     def remote_desktop_client_password_unsaved(self):
         """
@@ -2174,8 +2128,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
         key_val = "DisablePasswordSaving"
         val =  1 
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
 
     def dc_sleep_wakeup_password_required(self):
@@ -2191,11 +2145,11 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Power\PowerSettings\0e796bdb-100d-47d6-a2d5-f7d2daa51f51"
         key_val = "DCSettingIndex"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
 
-    def admin_consent_prompt_enabled(self):
+    def admin_consent_prompt_compare(self):
         """
         Check SV-78309r1_rule: Users must be prompted for a password on resume from sleep (on battery).
 
@@ -2208,11 +2162,11 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "ConsentPromptBehaviorAdmin"
         val = 2
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
 
-    def machine_lockout_enabled(self):
+    def machine_lockout_compare(self):
         """
         Check SV-78447r1_rule: Users must be prompted for a password on resume from sleep (on battery).
 
@@ -2225,8 +2179,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "MaxDevicePasswordFailedAttempts"
         val = 10
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare 
 
     def http_printing_disabled(self):
         """
@@ -2240,8 +2194,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Printers"
         key_val = "DisableHTTPPrinting"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled      
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare      
 
 
     def restart_automatic_signin_disabled(self):
@@ -2256,8 +2210,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "DisableAutomaticRestartSignOn"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled    
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare    
 
     def winrm_client_unencrypted_traffic_disabled(self):
         """
@@ -2271,12 +2225,12 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Client"
         key_val = "AllowUnencryptedTraffic"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
-    def optional_accounts_enabled(self):
+    def optional_accounts_compare(self):
         """
-        Check SV-78149r1_rule: The setting to allow Microsoft accounts to be optional for modern style apps must be enabled.
+        Check SV-78149r1_rule: The setting to allow Microsoft accounts to be optional for modern style apps must be compare.
 
         Finding ID: V-63659
 
@@ -2286,8 +2240,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "MSAOptional"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled        
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare        
 
     def session_suspension_time_set(self):
         """
@@ -2301,10 +2255,10 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
         key_val = "autodisconnect"
         val = 15
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled        
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare        
 
-    def password_reset_enabled(self):
+    def password_reset_compare(self):
         """
         Check SV-78143r1_rule: The computer account password must not be prevented from being reset.
 
@@ -2316,8 +2270,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
         key_val = "DisablePasswordChange"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled        
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare        
 
     def password_age_configured(self):
         """
@@ -2332,8 +2286,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\Netlogon\Parameters"
         key_val = "MaximumPasswordAge"
         val = 30
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled   
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare   
 
     def apci_data_collection_disabled(self):
         """
@@ -2347,8 +2301,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\AppCompat"
         key_val = "DisableInventory"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def login_cache_limited(self):
         """
@@ -2360,12 +2314,12 @@ class Windows10SystemAuditor:
         """             
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
-        key_val = " CachedLogonsCount"
+        key_val = "CachedLogonsCount"
         val = 10
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
-    def forced_logoff_enabled(self):
+    def forced_logoff_compare(self):
         """
         Check SV-78217r1_rule: Users must be forcibly disconnected when their logon hours expire.
 
@@ -2376,10 +2330,10 @@ class Windows10SystemAuditor:
         """             
         key = HKEY_LOCAL_MACHINE
         subkey = r"SYSTEM\CurrentControlSet\Services\LanManServer\Parameters"
-        key_val = " enableforcedlogoff"
+        key_val = "enableforcedlogoff"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def heap_termination_turnoff_disabled(self):
         """
@@ -2391,10 +2345,10 @@ class Windows10SystemAuditor:
         """             
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Explorer"
-        key_val = " NoHeapTerminationOnCorruption"
+        key_val = "NoHeapTerminationOnCorruption"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
     
 
     def domain_controller_authentication_not_required(self):
@@ -2409,10 +2363,10 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
         key_val = "ForceUnlockLogon"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
-    def imcp_redirect_enabled(self):
+    def imcp_redirect_compare(self):
         """
         Check SV-78053r1_rule: The system must be configured to prevent Internet Control Message Protocol (ICMP) redirects from overriding Open Shortest Path First (OSPF) generated routes.
         
@@ -2424,8 +2378,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\Tcpip\Parameters"
         key_val = "EnableICMPRedirect"
         val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def netbios_name_ignored(self):
         """
@@ -2439,8 +2393,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Services\Netbt\Parameters"
         key_val = "NoNameReleaseOnDemand"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def toast_notification_disabled(self):
         """
@@ -2454,8 +2408,8 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications"
         key_val = "NoToastApplicationNotificationOnLockScreen"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
     def global_system_objets_permissions_disabeled(self):
         """
@@ -2469,8 +2423,8 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Session Manager"
         key_val = "ProtectionMode"
         val = 1
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
+        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return compare
 
 
 if __name__ == "__main__":
