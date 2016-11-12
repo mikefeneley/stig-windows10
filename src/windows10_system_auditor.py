@@ -285,6 +285,7 @@ class Windows10SystemAuditor:
         result = self.global_system_objets_permissions_disabeled()
         logger.global_system_objets_permissions_disabled_errmsg(result)
 
+        del logger
 
     def lan_manager_hash_disabled(self):
         """
@@ -387,9 +388,6 @@ class Windows10SystemAuditor:
         Finding ID: V-63673
 
         :returns: int -- True if criteria met, False otherwise
-
-        NOTE
-                Add registry key in test and verify it queries correctly.
         """                             
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer"
@@ -406,9 +404,6 @@ class Windows10SystemAuditor:
         Finding ID: V-63671
 
         :returns: int -- True if criteria met, False otherwise
-
-        NOTE
-                Add registry key in test and verify it queries correctly.
         """        
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
@@ -422,7 +417,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78235r1_rule: Anonymous enumeration of SAM accounts must not 
         be allowed.
-
 
         Finding ID: V-63745
 
@@ -440,7 +434,6 @@ class Windows10SystemAuditor:
         """
         Check SV-83445r1_rule: Structured Exception Handling Overwrite 
         Protection (SEHOP) must be turned on.
-
 
         Finding ID: V-68849
 
@@ -460,7 +453,6 @@ class Windows10SystemAuditor:
         Check SV-78299r1_rule: The Recovery Console option must be set 
         to prevent automatic logon to the system.
 
-
         Finding ID: V-63809
 
         :returns: int -- True if criteria met, False otherwise
@@ -477,7 +469,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78291r1_rule: The LanMan authentication level must be 
         set to send NTLMv2 response only, and to refuse LM and NTLM.
-
 
         Finding ID: V-63801
 
