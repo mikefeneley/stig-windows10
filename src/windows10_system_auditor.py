@@ -36,6 +36,247 @@ class Windows10SystemAuditor:
         result = self.winrm_service_basic_auth_disabled()
 
         result = self.winrm_client_basic_auth_disabled()
+
+        result = self.emet_sehop_optout_set()
+
+        result - self.emet_deephooks_set()
+
+        result = self.unencrypted_passwd_smb_disabled()
+
+        result = self.smartscreen_filter_enabled()
+
+        result = self.hardware_device_pfw_enabled()
+
+        result = self.smb_packet_signing_set()
+
+        result = self.client_rpc_authentication_set()
+
+        result = self.unauthenticated_rpc_elient_restricted()
+
+        result = self.application_event_log_size_set()
+
+        result = self.user_installation_option_disabled()
+
+        result = self.powershell_script_block_logging_enabled()
+
+        result = self.tcp_port_set()
+
+        result = self.strong_session_key_required()
+
+        result = self.tcp_port_set()
+
+        result = self.screen_saver_set()
+
+        result = self.error_reports_generated()
+
+        result = self.smb_packet_signing()
+
+        result = self.inprivate_browsing_disabled()
+
+        result = self.smb_packet_signing_required()
+
+        result = self.appoverride_disabled()
+
+        result = self.automatic_logon_disabled()
+
+        result = self.ipv6_routing_protection_configured()
+
+        result = self.screen_saver_enabled()
+
+        result = self.ip_source_routing_disabled()
+
+        result = self.multiple_error_reports_set()
+
+        result = self.enhanced_antispoofing_set()
+
+        result = self.winrm_runas_disabled()
+
+        result = self.zone_info_saved()
+
+        result = self.num_error_reports_configured()
+
+        result = self.lock_screen_camera_access_disabled()
+
+        result = self.queue_error_reports_disabled()
+
+        result = self.lock_screen_slide_shows_disabled()
+
+        result = self.winrm_unencrypted_traffic_disabled()
+
+        result = self.smartscreen_admin_aproval_required()
+
+        result = self.windows_telemetry_data_set()
+
+        result = self.classic_security_model_set()
+
+        result = self.computer_identity_negotiation_set()
+
+        result = self.ntml_null_session_disabled()
+
+        result = self.group_policy_objects_reprocess_set()
+
+        result = self.pku2u_authentication_disabled()
+
+        result = self.powershell_script_block_invocation_logging()
+
+        result = self.all_error_ports_added_to_queue()
+
+        result = self.consent_override_behavior_set()
+
+        result = self.data_transmission_consent_set()
+
+        result = self.pin_length_configuered()
+
+        result = self.encrypted_indexing_disabled()
+
+        result = self.password_storage_disabled()
+
+        result = self.elevated_network_domain_privlidge_disabled()
+
+        result = self.http_printer_driver_dl_disabled()
+
+        result = self.blank_passwd_accounts_disabled()
+
+        result = self.wifi_sense_disabled()
+
+        result = self.emet_antidetours_set()
+
+        result = self.uac_admin_mode_enabled()
+
+        result = self.sys_event_log_size_configuered()
+
+        result = self.uac_elevate_restricted()
+
+        result = self.uac_installer_detection_enabled()
+
+        result = self.kerberos_encrypt_configuered()
+
+        result = self.smb_packet_signing_required()
+
+        result = self.error_report_ssl_required()
+
+        result = self.domain_joined_computers_unenumerated()
+
+        result = self.max_error_queue_reports_set()
+
+        result = self.security_event_log_size_configuered()
+
+        result = self.rss_feed_attachements_disabled()
+
+        result = self.admin_account_elevation_enumeration_disabled()
+
+        result = self.user_errmsg_disabled()
+
+        result = self.ignore_edge_warnings_disabled()
+
+        result = self.wizard_provider_dl_disabled()
+
+        result = self.nondomain_domain_network_blocked()
+
+        result = self.nui_disabled()
+
+        result = self.rds_encryption_level_set()
+
+        result = self.screen_saver_passwd_required()
+
+        result = self.uac_virtalilzation_set()
+
+        result = self.daily_error_reports_required()
+
+        result = self.annonymous_users_excluded()
+
+        result = self.error_report_archive_configuered()
+
+        result = self.uac_elevation_requests_disabled()
+
+        result = self.smb_insecure_login_disabled()
+
+        result = self.error_reports_archived()
+
+        result = self.remote_desktop_host_secure_rpc_required()
+
+        result = self.spn_client_accept_configuered()
+
+        result = self.rsd_passwd_prompt_required()
+
+        result = self.remote_desktop_session_hosts_local_drive_disabled()
+
+        result = self.outgoing_traffic_secured()
+
+        result = self.pin_signin_disabled()
+
+        result = self.local_user_enumeration_disabled()
+
+        result = self.emet_banned_functions_disabled()
+
+        result = self.onedrive_storage_disabled()
+
+        result = self.audit_policy_subcategories_enabled()
+
+        result = self.ldap_client_signing_level_set()
+
+        result = self.ntlm_ssp_client_session_security_configuered()
+
+        result = self.ntlm_ssp_server_session_security_configuered()
+
+        result = self.winrm_digest_authentication_disabled()
+
+        result = self.command_line_creation_event_logged()
+
+        result = self.uac_approval_mode_enabled()
+
+        result = self.ac_sleep_wakeup_password_required()
+
+        result = self.case_insensitivity_required()
+
+        result = self.fips_compliant_algorithims_set()
+
+        result = self.outgoing_secure_traffic_encrypted()
+
+        result = self.untrusted_fonts_blocked()
+
+        result = self.outgoing_traffic_signed()
+
+        result = self.remote_desktop_client_password_unsaved()
+
+        result = self.dc_sleep_wakeup_password_required()
+
+        result = self.admin_consent_prompt_enabled()
+
+        result = self.machine_lockout_enabled()
+
+        result = self.http_printing_disabled()
+
+        result = self.restart_automatic_signin_disabled()
+
+        result = self.winrm_client_unencrypted_traffic_disabled()
+
+        result = self.optional_accounts_enabled()
+
+        result = self.session_suspension_time_set()
+
+        result = self.password_reset_enabled()
+
+        result = self.password_age_configured()
+
+        result = self.apci_data_collection_disabled()
+
+        result = self.login_cache_limited()
+
+        result = self.forced_logoff_enabled()
+
+        result = self.heap_termination_turnoff_disabled()
+
+        result = self.domain_controller_authentication_not_required()
+
+        result = self.imcp_redirect_enabled()
+
+        result = self.netbios_name_ignored()
+        
+        result = self.toast_notification_disabled()
+
+        result = self.global_system_objets_permissions_disabeled()
+
     def lan_manager_hash_disabled(self):
         """
         Check SV-78287r1_rule: The system must be configured to prevent
@@ -864,22 +1105,6 @@ class Windows10SystemAuditor:
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\DataCollection"
         key_val = "AllowTelemetry"
-        val = 0
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled
-
-    def classic_security_model_set(self):
-        """
-        Check SV-78251r1_rule: The system must be configured to use 
-        the Classic security model.
-
-        Finding ID: V-63761
-
-        :returns: int -- True if criteria met, False otherwise
-        """             
-        key = HKEY_LOCAL_MACHINE
-        subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
-        key_val = "forceguest"
         val = 0
         enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return enabled
