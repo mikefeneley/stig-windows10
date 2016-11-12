@@ -999,12 +999,54 @@ class Windows10SystemAuditor:
         enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return enabled        
 
+    def consent_override_behavior_set(self):
+        """
+        Check SV-78065r1_rule: The system must be configured to add all
+        error reports to the queue.
 
+        Finding ID: V-63575
 
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent"
+        key_val = " DefaultOverrideBehavior"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled        
 
+    def consent_override_behavior_set(self):
+        """
+        Check SV-78065r1_rule: The system must be configured to add all
+        error reports to the queue.
 
+        Finding ID: V-63575
 
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent"
+        key_val = " DefaultOverrideBehavior"
+        val = 1
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled     
 
+    def data_transmission_consent_set(self):
+        """
+        Check SV-78061r1_rule: The system must be configured to automatically
+        consent to send all data requested by a local or DOD-wide error 
+        collection site.
+
+        Finding ID: V-63571
+
+        :returns: int -- True if criteria met, False otherwise
+        """             
+        key = HKEY_LOCAL_MACHINE
+        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting\Consent"
+        key_val = "DefaultConsent"
+        val = 4
+        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
+        return enabled     
 
 
 
