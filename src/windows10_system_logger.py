@@ -610,6 +610,13 @@ class Windows10SystemLogger:
            self.log.write("Check SV-78287r1_rule: ")
            self.log.write("Printing over HTTP must be prevented.\n\n")
 
+    def restart_automatic_signin_disabled_errmsg(self, success):
+        if not success:
+           self.log.write("Check SV-78287r1_rule: ")
+           self.log.write("Printing over HTTP must be prevented.\n\n")
+  
+
+
     def winrm_client_unencrypted_traffic_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-77829r1_rule: ")
