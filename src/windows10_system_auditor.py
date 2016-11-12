@@ -13,88 +13,94 @@ class Windows10SystemAuditor:
         Entry function to all system defined requirments by the
         Windows 10 STIG.
         """
+
+        logger = Windows10SystemLogger()
+
         result = self.lan_manager_hash_disabled()
-                
+        logger.lan_manager_hash_disabled_errmsg(result)
         result = self.remote_assistance_disabled()
-              
+        logger.remote_assistance_disabled_errmsg(result)
         result = self.windows_installer_elevated_prviliges_disabled()
-
+        logger.windows_installer_elevated_prviliges_disabled_errmsg(result)
         result = self.non_volume_autoplay_disabled()
-
+        logger.non_volume_autoplay_disabled_errmsg(result)
         result = self.annonymous_pipe_access_restricted()
-
+        logger.annonymous_pipe_access_restricted_errmsg(result)
         result = self.drive_autorun_disabled()
-
+        logger.drive_autorun_disabled_errmsg(result)
         result = self.autorun_commands_disabled()
-
+        logger.autorun_commands_disabled_errmsg(result)
         result = self.sam_anonymous_enumeration_disabled()
-
+        logger.sam_anonymous_enumeration_disabled_errmsg(result)
         result = self.sehop_disabled()
-
+        logger.sehop_disabled_errmsg(result)
         result = self.recovery_console_enabled()
-
+        logger.recovery_console_enabled_errmsg(result)
         result = self.lanman_auth_level_set()
-
+        logger.lanman_auth_level_set_errmsg(result)
         result = self.winrm_service_basic_auth_disabled()
-
+        logger.winrm_service_basic_auth_disabled_errmsg(result)
+        result = self.annonymous_share_enumeration_disabled()
+        logger.annonymous_share_enumeration_disabled_errmsg(result)
         result = self.winrm_client_basic_auth_disabled()
+        logger.winrm_service_basic_auth_disabled_errmsg(result)
 
         result = self.emet_sehop_optout_set()
-
+        logger.emet_sehop_optout_set_errmsg(result)
         result - self.emet_deephooks_set()
-
+        logger.emet_deephooks_set_errmsg(result)
         result = self.unencrypted_passwd_smb_disabled()
-
+        logger.unencrypted_passwd_smb_disabled_errmsg(result)
         result = self.smartscreen_filter_enabled()
-
+        logger.smartscreen_filter_enabled_errmsg(result)
         result = self.hardware_device_pfw_enabled()
-
+        logger.hardware_device_pfw_enabled_errmsg(result)
         result = self.smb_packet_signing_set()
-
+        logger.smb_packet_signing_set_errmsg(result)
         result = self.client_rpc_authentication_set()
-
+        logger.client_rpc_authentication_set_errmsg(result)
         result = self.unauthenticated_rpc_elient_restricted()
-
+        logger.unauthenticated_rpc_elient_restricted_errmsg(result)
         result = self.application_event_log_size_set()
-
+        logger.application_event_log_size_set_errmsg(result)
         result = self.user_installation_option_disabled()
-
+        logger.user_installation_option_disabled_errmsg(result)
         result = self.powershell_script_block_logging_enabled()
-
+        logger.powershell_script_block_logging_enabled_errmsg(result)
         result = self.tcp_port_set()
-
+        logger.tcp_port_set_errmsg(result)
         result = self.strong_session_key_required()
-
+        logger.strong_session_key_required_errmsg(result)
         result = self.tcp_port_set()
-
+        logger.tcp_port_set_errmsg(result)
         result = self.screen_saver_set()
-
+        logger.screen_saver_set_errmsg(result)
         result = self.error_reports_generated()
-
+        logger.error_reports_generated_errmsg(result)
         result = self.smb_packet_signing()
-
+        logger.smb_packet_signing_errmsg(result)
         result = self.inprivate_browsing_disabled()
-
+        logger.inprivate_browsing_disabled_errmsg(result)
         result = self.smb_packet_signing_required()
-
-        result = self.appoverride_disabled()
-
+        logger.smb_packet_signing_required_errmsg(result)
+        result = self.app_override_disabled()
+        logger.app_override_disabled_errmsg(result)
         result = self.automatic_logon_disabled()
-
+        logger.automatic_logon_disabled_errmsg(result)
         result = self.ipv6_routing_protection_configured()
-
+        logger.ipv6_routing_protection_configured_errmsg(result)
         result = self.screen_saver_enabled()
-
+        logger.screen_saver_enabled_errmsg(result)
         result = self.ip_source_routing_disabled()
-
+        logger.ip_source_routing_disabled_errmsg(result)
         result = self.multiple_error_reports_set()
-
+        logger.multiple_error_reports_set_errmsg(result)
         result = self.enhanced_antispoofing_set()
-
+        logger.enhanced_antispoofing_set_errmsg(result)
         result = self.winrm_runas_disabled()
-
+        logger.winrm_runas_disabled_errmsg(result)
         result = self.zone_info_saved()
-
+        logger.zone_info_saved_errmsg(result)
         result = self.num_error_reports_configured()
 
         result = self.lock_screen_camera_access_disabled()

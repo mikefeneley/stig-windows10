@@ -1,0 +1,58 @@
+#########################
+
+JRE Audit Findings
+
+Check SV-78141r1_rule: Solicited Remote Assistance must not be allowed.
+
+Check SV-77815r1_rule: The Windows Installer Always install with elevated privileges must be disabled.
+
+Check SV-78157r1_rule: Autoplay must be turned off for non-volume devices.
+
+Check SV-78163r1_rule: Autoplay must be disabled for all drives.
+
+Check SV-78163r1_rule: The default autorun behavior must be configured to prevent autorun commands.
+
+Check SV-83445r1_rule: Structured Exception Handling Overwrite Protection (SEHOP) must be turned on.
+
+Check SV-78299r1_rule: The Recovery Console option must be set to prevent automatic logon to the system.
+
+Check SV-78291r1_rule: The LanMan authentication level must be set to send NTLMv2 response only, and to refuse LM and NTLM.
+
+Check SV-78287r1_rule: The Windows Remote Management (WinRM) service must not use Basic authentication.
+
+Check SV-78287r1_rule: Anonymous enumeration of shares must be restricted..
+
+Check SV-78287r1_rule: The Windows Remote Management (WinRM) service must not use Basic authentication.
+
+Check SV-77901r2_rule: The Enhanced Mitigation Experience Toolkit (EMET) system-wide Structured Exception Handler Overwrite Protection (SEHOP) must be configured to Application Opt Out.
+
+Check SV-77901r2_rule: The Enhanced Mitigation Experience Toolkit (EMET) system-wide Structured Exception Handler Overwrite Protection (SEHOP) must be configured to Application Opt Out.
+
+Check SV-78203r1_rule: The SmartScreen filter for Microsoft Edge must be enabled.
+
+Check SV-78207r2_rule: The SmartScreen filter for Microsoft Edge must be enabled.
+
+Check SV-78209r1_rule: The Windows SMB server must be configured to always perform SMB packet signing.
+
+Check SV-78145r1_rule:  Client computers must be required to authenticate for RPC communication.
+
+Check SV-78147r1_rule: Unauthenticated RPC clients must be restricted from connecting to the RPC server.
+
+Check SV-78009r1_rule: The Application event log size must be configured to 32768 KB or greater.
+
+Check SV-77811r1_rule: Users must be prevented from changing installation options.
+
+Check SV-83411r1_rule: PowerShell script block logging must be enabled.
+
+Check SV-78019r1_rule: The system must be configured to send error reports on TCP port 1232.
+
+Check SV-78019r1_rule: The system must be configured to send error reports on TCP port 1232.
+
+Check SV-78159r1_rule: The machine inactivity limit must be set to 15 minutes, locking the system with the screensaver.
+
+Check SV-77949r1_rule: The machine inactivity limit must be set to 15 minutes, locking the system with the screensaver.
+
+Check SV-78195r1_rule: The machine inactivity limit must be set to 15 minutes, locking the system with the screensaver.
+
+#########################
+
