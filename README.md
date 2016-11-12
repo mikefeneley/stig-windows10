@@ -38,6 +38,12 @@ SV-78239r1_rule, V-63749
 
 SV-77825r1_rule, V-63335
 
+<b>Using the Program</b>
+
+The program can be run using the command line. Navigate to the src folder after downloading and execute program with the following command:
+
+python windows_auditor.py
+
 SV-77901r2_rule, V-63411
 
 SV-77881r3_rule,  V-63391
