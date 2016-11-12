@@ -614,8 +614,6 @@ class Windows10SystemLogger:
            self.log.write("Check SV-78287r1_rule: ")
            self.log.write("Printing over HTTP must be prevented.\n\n")
   
-
-
     def winrm_client_unencrypted_traffic_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-77829r1_rule: ")
@@ -638,8 +636,8 @@ class Windows10SystemLogger:
 
     def password_age_configured_errmsg(self, success):
         if not success:
-           self.log.write("Check SV-78143r1_rule: ")
-           self.log.write("The computer account password must not be prevented from being reset.\n\n")
+           self.log.write("Check SV-78151r1_rule: ")
+           self.log.write("The maximum age for machine account passwords must be configured to 30 days or less.\n\n")
 
     def apci_data_collection_disabled_errmsg(self, success):
         if not success:
@@ -659,17 +657,17 @@ class Windows10SystemLogger:
     def heap_termination_turnoff_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78217r1_rule: ")
-           self.log.write("Users must be forcibly disconnected when their logon hours expire.\n\n")
+           self.log.write("Turning off File Explorer heap termination on corruption must be disabled.\n\n")
 
     def domain_controller_authentication_not_required_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78183r1_rule: ")
-           self.log.write("Users must be forcibly disconnected when their logon hours expire.\n\n")
+           self.log.write("Domain Controller authentication must not be required to unlock the workstation.\n\n")
 
     def imcp_redirect_enabled_errmsg(self, success):
         if not success:
-           self.log.write("Check SV-78183r1_rule: ")
-           self.log.write(" Users must be forcibly disconnected when their logon hours expire.\n\n")
+           self.log.write("Check SV-78053r1_rule: ")
+           self.log.write("The system must be configured to prevent Internet Control Message Protocol (ICMP) redirects from overriding Open Shortest Path First (OSPF) generated routes.\n\n")
 
     def netbios_name_ignored_errmsg(self, success):
         if not success:

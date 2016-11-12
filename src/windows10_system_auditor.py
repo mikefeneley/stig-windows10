@@ -308,12 +308,11 @@ class Windows10SystemAuditor:
         """
         Check SV-78141r1_rule: Solicited Remote Assistance must not be allowed.
 
-
         Finding ID: V-63651
 
         :returns: int -- True if criteria met, False otherwise
         """      
-
+        
         key = HKEY_LOCAL_MACHINE
         subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
         key_val = "fAllowToGetHelp"
@@ -2384,7 +2383,7 @@ class Windows10SystemAuditor:
 
     def heap_termination_turnoff_disabled(self):
         """
-        Check SV-78181r1_rule: Users must be forcibly disconnected when their logon hours expire.
+        Check SV-78181r1_rule: Turning off File Explorer heap termination on corruption must be disabled.
 
         Finding ID: V-63691
 
