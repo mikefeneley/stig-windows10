@@ -1,3 +1,5 @@
+
+from windows10_system_logger import Windows10SystemLogger
 from winreg_comparator import WinRegComparator
 from _winreg import *
 
@@ -848,7 +850,7 @@ class Windows10SystemAuditor:
         return enabled
 
 
-    def appoverride_disabled(self):  
+    def app_override_disabled(self):  
         """
         Check SV-78191r1_rule: Users must not be allowed to ignore SmartScreen 
         filter warnings for unverified files in Microsoft Edge.
@@ -1699,24 +1701,6 @@ class Windows10SystemAuditor:
         val = 3
         enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return enabled 
-
-
-    def rds_encryption_level_set(self):
-        """
-        Check SV-78231r1_rule: Remote Desktop Services must be configured with the client connection encryption set to the required level.
-
-
-        Finding ID: V-63741
-        
-        :returns: int -- True if criteria met, False otherwise
-        """             
-        key = HKEY_LOCAL_MACHINE
-        subkey = r"SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services"
-        key_val = "MinEncryptionLevel"
-        val = 3
-        enabled = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return enabled 
-
 
     def screen_saver_passwd_required(self):
         """
