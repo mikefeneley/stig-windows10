@@ -1,5 +1,7 @@
 # stig_windows10
 
+<b>Introduction</b>
+
 This program checks a subset of the configuration requirements of the DISA Windows 10 STIG. If any of the rules are violated, information about the violated rule is written to a configuration file for user review.
 
 
@@ -270,3 +272,8 @@ SV-78329r1_rule, V-63839
 
 SV-80171r1_rule, V-65681
 
+<b>Using the Program</b>
+
+The program can be run using the command line. Navigate to the src folder after downloading and execute program with the following command:
+
+<i>python windows_auditor.py</i>
