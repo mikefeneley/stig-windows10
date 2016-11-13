@@ -21,7 +21,6 @@ class Windows10SystemLogger:
     def get_filename(self):
         return self.filename
 
-
     def lan_manager_hash_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78287r1_rule: ")
@@ -273,7 +272,6 @@ class Windows10SystemLogger:
            self.log.write("Check SV-78251r1_rule: ")
            self.log.write("The system must be configured to use the Classic security model.\n\n")
 
-
     def computer_identity_negotiation_set_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78253r1_rule: ")
@@ -307,7 +305,7 @@ class Windows10SystemLogger:
     def consent_override_behavior_set_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78065r1_rule: ")
-           self.log.write("The system must be configured to add all error reports to the queue.\n\n")
+           self.log.write("The system must be configured to permit the default consent levels of Windows Error Reporting to override any other consent policy setting.\n\n")
 
     def data_transmission_consent_set_errmsg(self, success):
         if not success:
@@ -376,7 +374,7 @@ class Windows10SystemLogger:
     def kerberos_encrypt_configuered_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78315r1_rule: ")
-           self.log.write("User Account Control must be configured to detect application installations and prompt for elevation.\n\n")
+           self.log.write("Kerberos encryption types must be configured to prevent the use of DES and RC4 encryption suites.\n\n")
 
     def smb_packet_signing_required_errmsg(self, success):
         if not success:
@@ -421,12 +419,12 @@ class Windows10SystemLogger:
     def ignore_edge_warnings_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78189r1_rule: ")
-           self.log.write(" Users must not be allowed to ignore SmartScreen filter warnings for malicious websites in Microsoft Edge.\n\n")
+           self.log.write("Users must not be allowed to ignore SmartScreen filter warnings for malicious websites in Microsoft Edge.\n\n")
 
     def wizard_provider_dl_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78189r1_rule: ")
-           self.log.write(" Web publishing and online ordering wizards must be prevented from downloading a list of providers.\n\n")
+           self.log.write("Web publishing and online ordering wizards must be prevented from downloading a list of providers.\n\n")
 
     def nondomain_domain_network_blocked_errmsg(self, success):
         if not success:
@@ -530,12 +528,12 @@ class Windows10SystemLogger:
     def audit_policy_subcategories_enabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78125r1_rule: ")
-           self.log.write("The use of OneDrive for storage must be disabled.\n\n")
+           self.log.write("Audit policy using subcategories must be enabled.\n\n")
 
     def ldap_client_signing_level_set_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78293r1_rule: ")
-           self.log.write("The use of OneDrive for storage must be disabled.\n\n")
+           self.log.write("The system must be configured to the required LDAP client signing level.\n\n")
 
     def ntlm_ssp_client_session_security_configuered_errmsg(self, success):
         if not success:
@@ -550,7 +548,7 @@ class Windows10SystemLogger:
     def winrm_digest_authentication_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-77831r1_rule: ")
-           self.log.write("The system must be configured to meet the minimum session security requirement for NTLM SSP based clients.\n\n")
+           self.log.write("The Windows Remote Management (WinRM) client must not use Digest authentication.\n\n")
 
     def command_line_creation_event_logged_errmsg(self, success):
         if not success:
@@ -600,12 +598,12 @@ class Windows10SystemLogger:
     def admin_consent_prompt_enabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78309r1_rule: ")
-           self.log.write("Users must be prompted for a password on resume from sleep (on battery).\n\n")
+           self.log.write("The system must be configured to audit Account Logon - Credential Validation failures.\n\n")
 
     def machine_lockout_enabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78447r1_rule: ")
-           self.log.write("Users must be prompted for a password on resume from sleep (on battery).\n\n")
+           self.log.write("The machine account lockout threshold must be set to 10 on systems with BitLocker enabled.\n\n")
 
     def http_printing_disabled_errmsg(self, success):
         if not success:

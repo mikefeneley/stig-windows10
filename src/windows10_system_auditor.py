@@ -18,270 +18,406 @@ class Windows10SystemAuditor:
 
         result = self.lan_manager_hash_disabled()
         logger.lan_manager_hash_disabled_errmsg(result)
+
         result = self.remote_assistance_disabled()
         logger.remote_assistance_disabled_errmsg(result)
+
         result = self.windows_installer_elevated_prviliges_disabled()
         logger.windows_installer_elevated_prviliges_disabled_errmsg(result)
+
         result = self.non_volume_autoplay_disabled()
         logger.non_volume_autoplay_disabled_errmsg(result)
+
         result = self.annonymous_pipe_access_restricted()
         logger.annonymous_pipe_access_restricted_errmsg(result)
+
         result = self.drive_autorun_disabled()
         logger.drive_autorun_disabled_errmsg(result)
+
         result = self.autorun_commands_disabled()
         logger.autorun_commands_disabled_errmsg(result)
+
         result = self.sam_anonymous_enumeration_disabled()
         logger.sam_anonymous_enumeration_disabled_errmsg(result)
+
         result = self.sehop_disabled()
         logger.sehop_disabled_errmsg(result)
+
         result = self.recovery_console_enabled()
         logger.recovery_console_enabled_errmsg(result)
+
         result = self.lanman_auth_level_set()
         logger.lanman_auth_level_set_errmsg(result)
+
         result = self.winrm_service_basic_auth_disabled()
         logger.winrm_service_basic_auth_disabled_errmsg(result)
+
         result = self.annonymous_share_enumeration_disabled()
         logger.annonymous_share_enumeration_disabled_errmsg(result)
+
         result = self.winrm_client_basic_auth_disabled()
         logger.winrm_service_basic_auth_disabled_errmsg(result)
+
         result = self.emet_sehop_optout_set()
         logger.emet_sehop_optout_set_errmsg(result)
+
         result - self.emet_deephooks_set()
         logger.emet_deephooks_set_errmsg(result)
+
         result = self.unencrypted_passwd_smb_disabled()
         logger.unencrypted_passwd_smb_disabled_errmsg(result)
+
         result = self.smartscreen_filter_enabled()
         logger.smartscreen_filter_enabled_errmsg(result)
+
         result = self.hardware_device_pfw_enabled()
         logger.hardware_device_pfw_enabled_errmsg(result)
+
         result = self.smb_packet_signing_set()
         logger.smb_packet_signing_set_errmsg(result)
+
         result = self.client_rpc_authentication_set()
         logger.client_rpc_authentication_set_errmsg(result)
+
         result = self.unauthenticated_rpc_elient_restricted()
         logger.unauthenticated_rpc_elient_restricted_errmsg(result)
+
         result = self.application_event_log_size_set()
         logger.application_event_log_size_set_errmsg(result)
+
         result = self.user_installation_option_disabled()
         logger.user_installation_option_disabled_errmsg(result)
+
         result = self.powershell_script_block_logging_enabled()
         logger.powershell_script_block_logging_enabled_errmsg(result)
+
         result = self.tcp_port_set()
         logger.tcp_port_set_errmsg(result)
+
         result = self.strong_session_key_required()
         logger.strong_session_key_required_errmsg(result)
+
         result = self.tcp_port_set()
         logger.tcp_port_set_errmsg(result)
+
         result = self.screen_saver_set()
         logger.screen_saver_set_errmsg(result)
+
         result = self.error_reports_generated()
         logger.error_reports_generated_errmsg(result)
+
         result = self.smb_packet_signing()
         logger.smb_packet_signing_errmsg(result)
+
         result = self.inprivate_browsing_disabled()
         logger.inprivate_browsing_disabled_errmsg(result)
+
         result = self.smb_packet_signing_required()
         logger.smb_packet_signing_required_errmsg(result)
+
         result = self.app_override_disabled()
         logger.app_override_disabled_errmsg(result)
+
         result = self.automatic_logon_disabled()
         logger.automatic_logon_disabled_errmsg(result)
+
         result = self.ipv6_routing_protection_configured()
         logger.ipv6_routing_protection_configured_errmsg(result)
+
         result = self.screen_saver_enabled()
         logger.screen_saver_enabled_errmsg(result)
+
         result = self.ip_source_routing_disabled()
         logger.ip_source_routing_disabled_errmsg(result)
+
         result = self.multiple_error_reports_set()
         logger.multiple_error_reports_set_errmsg(result)
+
         result = self.enhanced_antispoofing_set()
         logger.enhanced_antispoofing_set_errmsg(result)
+
         result = self.winrm_runas_disabled()
         logger.winrm_runas_disabled_errmsg(result)
+
         result = self.zone_info_saved()
         logger.zone_info_saved_errmsg(result)
+
         result = self.num_error_reports_configured()
         logger.num_error_reports_configured_errmsg(result)
+
         result = self.lock_screen_camera_access_disabled()
         logger.lock_screen_camera_access_disabled_errmsg(result)
+
         result = self.queue_error_reports_disabled()
         logger.queue_error_reports_disabled_errmsg(result)
+
         result = self.lock_screen_slide_shows_disabled()
         logger.lock_screen_slide_shows_disabled_errmsg(result)
+
         result = self.winrm_unencrypted_traffic_disabled()
         logger.winrm_unencrypted_traffic_disabled_errmsg(result)
+
         result = self.smartscreen_admin_aproval_required()
         logger.smartscreen_admin_aproval_required_errmsg(result)
+
         result = self.windows_telemetry_data_set()
         logger.windows_telemetry_data_set_errmsg(result)
+
         result = self.classic_security_model_set()
         logger.classic_security_model_set_errmsg(result)
+
         result = self.computer_identity_negotiation_set()
         logger.computer_identity_negotiation_set_errmsg(result)
+
         result = self.ntml_null_session_disabled()
         logger.ntml_null_session_disabled_errmsg(result)
+
         result = self.group_policy_objects_reprocess_set()
         logger.group_policy_objects_reprocess_set_errmsg(result)
+
         result = self.pku2u_authentication_disabled()
         logger.pku2u_authentication_disabled_errmsg(result)
+
         result = self.powershell_script_block_invocation_logging()
         logger.powershell_script_block_invocation_logging_errmsg(result)
+
         result = self.all_error_ports_added_to_queue()
         logger.all_error_ports_added_to_queue_errmsg(result)
+
         result = self.consent_override_behavior_set()
         logger.consent_override_behavior_set_errmsg(result)
+
         result = self.data_transmission_consent_set()
         logger.data_transmission_consent_set_errmsg(result)
+
         result = self.pin_length_configuered()
         logger.pin_length_configuered_errmsg(result)
+
         result = self.encrypted_indexing_disabled()
         logger.encrypted_indexing_disabled_errmsg(result)
+
         result = self.password_storage_disabled()
         logger.password_storage_disabled_errmsg(result)
+
         result = self.elevated_network_domain_privlidge_disabled()
         logger.elevated_network_domain_privlidge_disabled_errmsg(result)
+
         result = self.http_printer_driver_dl_disabled()
         logger.http_printer_driver_dl_disabled_errmsg(result)
+
         result = self.blank_passwd_accounts_disabled()
         logger.blank_passwd_accounts_disabled_errmsg(result)
+
         result = self.wifi_sense_disabled()
         logger.wifi_sense_disabled_errmsg(result)
+
         result = self.emet_antidetours_set()
         logger.emet_antidetours_set_errmsg(result)
+
         result = self.uac_admin_mode_enabled()
         logger.uac_admin_mode_enabled_errmsg(result)
+
         result = self.sys_event_log_size_configuered()
         logger.sys_event_log_size_configuered_errmsg(result)
+
         result = self.uac_elevate_restricted()
         logger.uac_elevate_restricted_errmsg(result)
+
         result = self.uac_installer_detection_enabled()
         logger.uac_installer_detection_enabled_errmsg(result)
+
         result = self.kerberos_encrypt_configuered()    
         logger.kerberos_encrypt_configuered_errmsg(result)
+
         result = self.smb_packet_signing_required()
         logger.smb_packet_signing_required_errmsg(result)
+
         result = self.error_report_ssl_required()
         logger.error_report_ssl_required_errmsg(result)
+
         result = self.domain_joined_computers_unenumerated()
         logger.domain_joined_computers_unenumerated_errmsg(result)
+
         result = self.max_error_queue_reports_set()
         logger.max_error_queue_reports_set_errmsg(result)
+
         result = self.security_event_log_size_configuered()
         logger.security_event_log_size_configuered_errmsg(result)
+
         result = self.rss_feed_attachements_disabled()
         logger.rss_feed_attachements_disabled_errmsg(result)
+
         result = self.admin_account_elevation_enumeration_disabled()
         logger.admin_account_elevation_enumeration_disabled_errmsg(result)
+
         result = self.user_errmsg_disabled()
         logger.user_errmsg_disabled_errmsg(result)
+
         result = self.ignore_edge_warnings_disabled()
         logger.ignore_edge_warnings_disabled_errmsg(result)
+
+
         result = self.wizard_provider_dl_disabled()
         logger.wizard_provider_dl_disabled_errmsg(result)
+
         result = self.nondomain_domain_network_blocked()
         logger.nondomain_domain_network_blocked_errmsg(result)
+
         result = self.nui_disabled()
         logger.nui_disabled_errmsg(result)
+
         result = self.rds_encryption_level_set()
         logger.rds_encryption_level_set_errmsg(result)
+
         result = self.screen_saver_passwd_required()
         logger.screen_saver_passwd_required_errmsg(result)
+
         result = self.uac_virtalilzation_set()
         logger.uac_virtalilzation_set_errmsg(result)
+
         result = self.daily_error_reports_required()
         logger.daily_error_reports_required_errmsg(result)
+
         result = self.annonymous_users_excluded()
         logger.annonymous_users_excluded_errmsg(result)
+
         result = self.error_report_archive_configuered()
         logger.error_report_archive_configuered_errmsg(result)
+
         result = self.uac_elevation_requests_disabled()
         logger.uac_elevation_requests_disabled_errmsg(result)
+
         result = self.smb_insecure_login_disabled()
         logger.smb_insecure_login_disabled_errmsg(result)
+
         result = self.error_reports_archived()
         logger.error_reports_archived_errmsg(result)
+
         result = self.remote_desktop_host_secure_rpc_required()
         logger.remote_desktop_host_secure_rpc_required_errmsg(result)
+
         result = self.spn_client_accept_configuered()
         logger.spn_client_accept_configuered_errmsg(result)
+
         result = self.rsd_passwd_prompt_required()
         logger.rsd_passwd_prompt_required_errmsg(result)
+
         result = self.remote_desktop_session_hosts_local_drive_disabled()
         logger.remote_desktop_session_hosts_local_drive_disabled_errmsg(result)
+
         result = self.outgoing_traffic_secured()
         logger.outgoing_traffic_secured_errmsg(result)
+
         result = self.pin_signin_disabled()
         logger.pin_signin_disabled_errmsg(result)
+
         result = self.local_user_enumeration_disabled()
         logger.local_user_enumeration_disabled_errmsg(result)
+
+
         result = self.emet_banned_functions_disabled()
         logger.emet_banned_functions_disabled_errmsg(result)
+
         result = self.onedrive_storage_disabled()
         logger.onedrive_storage_disabled_errmsg(result)
+
         result = self.audit_policy_subcategories_enabled()
         logger.audit_policy_subcategories_enabled_errmsg(result)
+
         result = self.ldap_client_signing_level_set()
         logger.ldap_client_signing_level_set_errmsg(result)
+
         result = self.ntlm_ssp_client_session_security_configuered()
         logger.ntlm_ssp_client_session_security_configuered_errmsg(result)
+
         result = self.ntlm_ssp_server_session_security_configuered()
         logger.ntlm_ssp_server_session_security_configuered_errmsg(result)
+
         result = self.winrm_digest_authentication_disabled()
         logger.winrm_digest_authentication_disabled_errmsg(result)
+
         result = self.command_line_creation_event_logged()
         logger.command_line_creation_event_logged_errmsg(result)
+
         result = self.uac_approval_mode_enabled()
         logger.uac_approval_mode_enabled_errmsg(result)
+
         result = self.ac_sleep_wakeup_password_required()
         logger.ac_sleep_wakeup_password_required_errmsg(result)
+
         result = self.case_insensitivity_required()
         logger.case_insensitivity_required_errmsg(result)
+
         result = self.fips_compliant_algorithims_set()
         logger.fips_compliant_algorithims_set_errmsg(result)
+
         result = self.outgoing_secure_traffic_encrypted()
         logger.untrusted_fonts_blocked_errmsg(result)
+
         result = self.untrusted_fonts_blocked()
         logger.outgoing_traffic_signed_errmsg(result)
+
         result = self.outgoing_traffic_signed()
         logger.remote_desktop_client_password_unsaved_errmsg(result)
+
         result = self.remote_desktop_client_password_unsaved()
         logger.dc_sleep_wakeup_password_required_errmsg(result)
+
         result = self.dc_sleep_wakeup_password_required()   
+        logger.dc_sleep_wakeup_password_required_errmsg(result)
+
+
+        result = self.admin_consent_prompt_enabled() 
         logger.admin_consent_prompt_enabled_errmsg(result)
-        result = self.admin_consent_prompt_enabled()
-        logger.machine_lockout_enabled_errmsg(result)
+
         result = self.machine_lockout_enabled()
-        logger.http_printing_disabled_errmsg(result)
+        logger.machine_lockout_enabled_errmsg(result)
+
         result = self.http_printing_disabled()
         logger.http_printing_disabled_errmsg(result)
+
         result = self.restart_automatic_signin_disabled()
         logger.restart_automatic_signin_disabled_errmsg(result)
+
         result = self.winrm_client_unencrypted_traffic_disabled()
         logger.winrm_client_unencrypted_traffic_disabled_errmsg(result)
+
         result = self.optional_accounts_enabled()
         logger.optional_accounts_enabled_errmsg(result)
+
         result = self.session_suspension_time_set()
         logger.session_suspension_time_set_errmsg(result)
+
         result = self.password_reset_enabled()
         logger.password_reset_enabled_errmsg(result)
+
         result = self.password_age_configured()
         logger.password_age_configured_errmsg(result)
+
         result = self.apci_data_collection_disabled()
         logger.apci_data_collection_disabled_errmsg(result)
+
         result = self.login_cache_limited()
         logger.login_cache_limited_errmsg(result)
+
         result = self.forced_logoff_enabled()
         logger.forced_logoff_enabled_errmsg(result)
+
         result = self.heap_termination_turnoff_disabled()
         logger.heap_termination_turnoff_disabled_errmsg(result)
+
         result = self.domain_controller_authentication_not_required()
         logger.domain_controller_authentication_not_required_errmsg(result)
+
         result = self.imcp_redirect_enabled()
         logger.imcp_redirect_enabled_errmsg(result)
+
         result = self.netbios_name_ignored()
         logger.netbios_name_ignored_errmsg(result)
+
         result = self.toast_notification_disabled()
         logger.toast_notification_disabled_errmsg(result)
+
         result = self.global_system_objets_permissions_disabeled()
         logger.global_system_objets_permissions_disabled_errmsg(result)
 
@@ -1195,8 +1331,7 @@ class Windows10SystemAuditor:
 
     def consent_override_behavior_set(self):
         """
-        Check SV-78065r1_rule: The system must be configured to add all
-        error reports to the queue.
+        Check SV-78065r1_rule: The system must be configured to permit the default consent levels of Windows Error Reporting to override any other consent policy setting.
 
         Finding ID: V-63575
 
@@ -1907,7 +2042,7 @@ class Windows10SystemAuditor:
 
     def audit_policy_subcategories_enabled(self):
         """
-        Check SV-78125r1_rule: The use of OneDrive for storage must be disabled.
+        Check SV-78125r1_rule: Audit policy using subcategories must be enabled.
 
 
         Finding ID: V-63635
@@ -1923,7 +2058,7 @@ class Windows10SystemAuditor:
 
     def ldap_client_signing_level_set(self):
         """
-        Check SV-78293r1_rule: The use of OneDrive for storage must be disabled.
+        Check SV-78293r1_rule: The system must be configured to the required LDAP client signing level.
 
 
         Finding ID: V-63803
@@ -1974,7 +2109,7 @@ class Windows10SystemAuditor:
 
     def winrm_digest_authentication_disabled(self):
         """
-        Check SV-77831r1_rule: The system must be configured to meet the minimum session security requirement for NTLM SSP based clients.
+        Check SV-77831r1_rule: The Windows Remote Management (WinRM) client must not use Digest authentication.
 
 
         Finding ID: V-63341
@@ -2151,7 +2286,7 @@ class Windows10SystemAuditor:
 
     def admin_consent_prompt_enabled(self):
         """
-        Check SV-78309r1_rule: Users must be prompted for a password on resume from sleep (on battery).
+        Check SV-78309r1_rule: User Account Control must, at minimum, prompt administrators for consent on the secure desktop.
 
 
         Finding ID: V-63819
@@ -2167,7 +2302,7 @@ class Windows10SystemAuditor:
 
     def machine_lockout_enabled(self):
         """
-        Check SV-78447r1_rule: Users must be prompted for a password on resume from sleep (on battery).
+        Check SV-78447r1_rule: The machine account lockout threshold must be set to 10 on systems with BitLocker enabled.
 
 
         Finding ID: V-63957
