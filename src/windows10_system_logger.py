@@ -18,6 +18,10 @@ class Windows10SystemLogger:
         self.log.write("#########################\n\n")
         self.log.close()
 
+    def get_filename(self):
+        return self.filename
+
+
     def lan_manager_hash_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78287r1_rule: ")
@@ -32,7 +36,6 @@ class Windows10SystemLogger:
         if not success:
            self.log.write("Check SV-77815r1_rule: ")
            self.log.write("The Windows Installer Always install with elevated privileges must be disabled.\n\n")
-
 
     def non_volume_autoplay_disabled_errmsg(self, success):
         if not success:
@@ -388,17 +391,17 @@ class Windows10SystemLogger:
     def domain_joined_computers_unenumerated_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78015r1_rule: ")
-           self.log.write("The system must be configured to use SSL to forward error reports.\n\n")
+           self.log.write("Connected users on domain-joined computers must not be enumerated.\n\n")
 
     def max_error_queue_reports_set_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78051r1_rule: ")
-           self.log.write("The system must be configured to use SSL to forward error reports.\n\n")
+           self.log.write("The maximum number of error reports to queue on a system must be configured to 50 or greater.\n\n")
 
     def security_event_log_size_configuered_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78051r1_rule: ")
-           self.log.write("The system must be configured to use SSL to forward error reports.\n\n")
+           self.log.write("The Security event log size must be configured to 196608 KB or greater.\n\n")
 
     def rss_feed_attachements_disabled_errmsg(self, success):
         if not success:
@@ -413,7 +416,7 @@ class Windows10SystemLogger:
     def user_errmsg_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-77995r1_rule: ")
-           self.log.write("Administrator accounts must not be enumerated during elevation.\n\n")
+           self.log.write("The system must be configured to prevent the display of error messages to the user.\n\n")
 
     def ignore_edge_warnings_disabled_errmsg(self, success):
         if not success:
@@ -423,7 +426,7 @@ class Windows10SystemLogger:
     def wizard_provider_dl_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78189r1_rule: ")
-           self.log.write("Users must not be allowed to ignore SmartScreen filter warnings for malicious websites in Microsoft Edge.\n\n")
+           self.log.write(" Web publishing and online ordering wizards must be prevented from downloading a list of providers.\n\n")
 
     def nondomain_domain_network_blocked_errmsg(self, success):
         if not success:
@@ -442,7 +445,7 @@ class Windows10SystemLogger:
     def screen_saver_passwd_required_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78231r1_rule: ")
-           self.log.write("Remote Desktop Services must be configured with the client connection encryption set to the required level.\n\n")
+           self.log.write("The screen saver must be password protected.\n\n")
 
     def uac_virtalilzation_set_errmsg(self, success):
         if not success:
@@ -456,8 +459,8 @@ class Windows10SystemLogger:
 
     def annonymous_users_excluded_errmsg(self, success):
         if not success:
-           self.log.write("Check SV-78055r1_rule: ")
-           self.log.write("The system must be configured to attempt to forward queued error reports once a day.\n\n")
+           self.log.write("Check SV-78245r1_rule: ")
+           self.log.write("The system must be configured to prevent anonymous users from having the same rights as the Everyone group.\n\n")
 
     def error_report_archive_configuered_errmsg(self, success):
         if not success:
@@ -466,8 +469,8 @@ class Windows10SystemLogger:
 
     def uac_elevation_requests_disabled_errmsg(self, success):
         if not success:
-           self.log.write("Check SV-78029r1_rule: ")
-           self.log.write("The system must be configured to store all data in the error report archive.\n\n")
+           self.log.write("Check SV-78311r1_rule: ")
+           self.log.write("User Account Control must automatically deny elevation requests for standard users.\n\n")
 
     def smb_insecure_login_disabled_errmsg(self, success):
         if not success:
@@ -476,8 +479,8 @@ class Windows10SystemLogger:
 
     def error_reports_archived_errmsg(self, success):
         if not success:
-           self.log.write("Check SV-78059r1_rule: ")
-           self.log.write("Insecure logons to an SMB server must be disabled.\n\n")
+           self.log.write("Check SV-78025r1_rule: ")
+           self.log.write("The system must be configured to archive error reports.\n\n")
 
     def remote_desktop_host_secure_rpc_required_errmsg(self, success):
         if not success:
@@ -562,7 +565,7 @@ class Windows10SystemLogger:
     def ac_sleep_wakeup_password_required_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78139r1_rule: ")
-           self.log.write("The user must be prompted for a password on resume from sleep (plugged in).n\n")
+           self.log.write("The user must be prompted for a password on resume from sleep (plugged in)\n\n")
 
     def case_insensitivity_required_errmsg(self, success):
         if not success:
@@ -606,13 +609,13 @@ class Windows10SystemLogger:
 
     def http_printing_disabled_errmsg(self, success):
         if not success:
-           self.log.write("Check SV-78287r1_rule: ")
+           self.log.write("Check SV-78113r1_rule: ")
            self.log.write("Printing over HTTP must be prevented.\n\n")
 
     def restart_automatic_signin_disabled_errmsg(self, success):
         if not success:
-           self.log.write("Check SV-78287r1_rule: ")
-           self.log.write("Printing over HTTP must be prevented.\n\n")
+           self.log.write("Check SV-77823r1_rule: ")
+           self.log.write("Automatically signing in the last interactive user after a system-initiated restart must be disabled.\n\n")
   
     def winrm_client_unencrypted_traffic_disabled_errmsg(self, success):
         if not success:

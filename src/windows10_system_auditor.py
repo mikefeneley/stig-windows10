@@ -8,12 +8,12 @@ from _winreg import *
 class Windows10SystemAuditor:
     def __init__(self):
         self.comparator = WinRegComparator()
+
     def audit(self):
         """
         Entry function to all system defined requirments by the
         Windows 10 STIG.
         """
-
         logger = Windows10SystemLogger()
 
         result = self.lan_manager_hash_disabled()
@@ -34,8 +34,8 @@ class Windows10SystemAuditor:
         logger.sam_anonymous_enumeration_disabled_errmsg(result)
         result = self.sehop_disabled()
         logger.sehop_disabled_errmsg(result)
-        result = self.recovery_console_compare()
-        logger.recovery_console_compare_errmsg(result)
+        result = self.recovery_console_enabled()
+        logger.recovery_console_enabled_errmsg(result)
         result = self.lanman_auth_level_set()
         logger.lanman_auth_level_set_errmsg(result)
         result = self.winrm_service_basic_auth_disabled()
@@ -50,10 +50,10 @@ class Windows10SystemAuditor:
         logger.emet_deephooks_set_errmsg(result)
         result = self.unencrypted_passwd_smb_disabled()
         logger.unencrypted_passwd_smb_disabled_errmsg(result)
-        result = self.smartscreen_filter_compare()
-        logger.smartscreen_filter_compare_errmsg(result)
-        result = self.hardware_device_pfw_compare()
-        logger.hardware_device_pfw_compare_errmsg(result)
+        result = self.smartscreen_filter_enabled()
+        logger.smartscreen_filter_enabled_errmsg(result)
+        result = self.hardware_device_pfw_enabled()
+        logger.hardware_device_pfw_enabled_errmsg(result)
         result = self.smb_packet_signing_set()
         logger.smb_packet_signing_set_errmsg(result)
         result = self.client_rpc_authentication_set()
@@ -64,8 +64,8 @@ class Windows10SystemAuditor:
         logger.application_event_log_size_set_errmsg(result)
         result = self.user_installation_option_disabled()
         logger.user_installation_option_disabled_errmsg(result)
-        result = self.powershell_script_block_logging_compare()
-        logger.powershell_script_block_logging_compare_errmsg(result)
+        result = self.powershell_script_block_logging_enabled()
+        logger.powershell_script_block_logging_enabled_errmsg(result)
         result = self.tcp_port_set()
         logger.tcp_port_set_errmsg(result)
         result = self.strong_session_key_required()
@@ -88,8 +88,8 @@ class Windows10SystemAuditor:
         logger.automatic_logon_disabled_errmsg(result)
         result = self.ipv6_routing_protection_configured()
         logger.ipv6_routing_protection_configured_errmsg(result)
-        result = self.screen_saver_compare()
-        logger.screen_saver_compare_errmsg(result)
+        result = self.screen_saver_enabled()
+        logger.screen_saver_enabled_errmsg(result)
         result = self.ip_source_routing_disabled()
         logger.ip_source_routing_disabled_errmsg(result)
         result = self.multiple_error_reports_set()
@@ -148,14 +148,14 @@ class Windows10SystemAuditor:
         logger.wifi_sense_disabled_errmsg(result)
         result = self.emet_antidetours_set()
         logger.emet_antidetours_set_errmsg(result)
-        result = self.uac_admin_mode_compare()
-        logger.uac_admin_mode_compare_errmsg(result)
+        result = self.uac_admin_mode_enabled()
+        logger.uac_admin_mode_enabled_errmsg(result)
         result = self.sys_event_log_size_configuered()
         logger.sys_event_log_size_configuered_errmsg(result)
         result = self.uac_elevate_restricted()
         logger.uac_elevate_restricted_errmsg(result)
-        result = self.uac_installer_detection_compare()
-        logger.uac_installer_detection_compare_errmsg(result)
+        result = self.uac_installer_detection_enabled()
+        logger.uac_installer_detection_enabled_errmsg(result)
         result = self.kerberos_encrypt_configuered()    
         logger.kerberos_encrypt_configuered_errmsg(result)
         result = self.smb_packet_signing_required()
@@ -218,8 +218,8 @@ class Windows10SystemAuditor:
         logger.emet_banned_functions_disabled_errmsg(result)
         result = self.onedrive_storage_disabled()
         logger.onedrive_storage_disabled_errmsg(result)
-        result = self.audit_policy_subcategories_compare()
-        logger.audit_policy_subcategories_compare_errmsg(result)
+        result = self.audit_policy_subcategories_enabled()
+        logger.audit_policy_subcategories_enabled_errmsg(result)
         result = self.ldap_client_signing_level_set()
         logger.ldap_client_signing_level_set_errmsg(result)
         result = self.ntlm_ssp_client_session_security_configuered()
@@ -230,8 +230,8 @@ class Windows10SystemAuditor:
         logger.winrm_digest_authentication_disabled_errmsg(result)
         result = self.command_line_creation_event_logged()
         logger.command_line_creation_event_logged_errmsg(result)
-        result = self.uac_approval_mode_compare()
-        logger.uac_approval_mode_compare_errmsg(result)
+        result = self.uac_approval_mode_enabled()
+        logger.uac_approval_mode_enabled_errmsg(result)
         result = self.ac_sleep_wakeup_password_required()
         logger.ac_sleep_wakeup_password_required_errmsg(result)
         result = self.case_insensitivity_required()
@@ -247,10 +247,10 @@ class Windows10SystemAuditor:
         result = self.remote_desktop_client_password_unsaved()
         logger.dc_sleep_wakeup_password_required_errmsg(result)
         result = self.dc_sleep_wakeup_password_required()   
-        logger.admin_consent_prompt_compare_errmsg(result)
-        result = self.admin_consent_prompt_compare()
-        logger.machine_lockout_compare_errmsg(result)
-        result = self.machine_lockout_compare()
+        logger.admin_consent_prompt_enabled_errmsg(result)
+        result = self.admin_consent_prompt_enabled()
+        logger.machine_lockout_enabled_errmsg(result)
+        result = self.machine_lockout_enabled()
         logger.http_printing_disabled_errmsg(result)
         result = self.http_printing_disabled()
         logger.http_printing_disabled_errmsg(result)
@@ -258,26 +258,26 @@ class Windows10SystemAuditor:
         logger.restart_automatic_signin_disabled_errmsg(result)
         result = self.winrm_client_unencrypted_traffic_disabled()
         logger.winrm_client_unencrypted_traffic_disabled_errmsg(result)
-        result = self.optional_accounts_compare()
-        logger.optional_accounts_compare_errmsg(result)
+        result = self.optional_accounts_enabled()
+        logger.optional_accounts_enabled_errmsg(result)
         result = self.session_suspension_time_set()
         logger.session_suspension_time_set_errmsg(result)
-        result = self.password_reset_compare()
-        logger.password_reset_compare_errmsg(result)
+        result = self.password_reset_enabled()
+        logger.password_reset_enabled_errmsg(result)
         result = self.password_age_configured()
         logger.password_age_configured_errmsg(result)
         result = self.apci_data_collection_disabled()
         logger.apci_data_collection_disabled_errmsg(result)
         result = self.login_cache_limited()
         logger.login_cache_limited_errmsg(result)
-        result = self.forced_logoff_compare()
-        logger.forced_logoff_compare_errmsg(result)
+        result = self.forced_logoff_enabled()
+        logger.forced_logoff_enabled_errmsg(result)
         result = self.heap_termination_turnoff_disabled()
         logger.heap_termination_turnoff_disabled_errmsg(result)
         result = self.domain_controller_authentication_not_required()
         logger.domain_controller_authentication_not_required_errmsg(result)
-        result = self.imcp_redirect_compare()
-        logger.imcp_redirect_compare_errmsg(result)
+        result = self.imcp_redirect_enabled()
+        logger.imcp_redirect_enabled_errmsg(result)
         result = self.netbios_name_ignored()
         logger.netbios_name_ignored_errmsg(result)
         result = self.toast_notification_disabled()
@@ -285,7 +285,11 @@ class Windows10SystemAuditor:
         result = self.global_system_objets_permissions_disabeled()
         logger.global_system_objets_permissions_disabled_errmsg(result)
 
+        filename = logger.get_filename()
         del logger
+        return filename
+
+
 
     def lan_manager_hash_disabled(self):
         """
@@ -317,7 +321,6 @@ class Windows10SystemAuditor:
         val = 0
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
-
 
     def windows_installer_elevated_prviliges_disabled(self):
         """
@@ -415,7 +418,6 @@ class Windows10SystemAuditor:
         val = 1
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare                             
-               
 
     def sehop_disabled(self):
         """
@@ -433,7 +435,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare  
         
-    def recovery_console_compare(self):
+    def recovery_console_enabled(self):
         """
         Check SV-78299r1_rule: The Recovery Console option must be set 
         to prevent automatic logon to the system.
@@ -563,7 +565,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare        
 
-    def smartscreen_filter_compare(self):
+    def smartscreen_filter_enabled(self):
         """
         Check SV-78203r1_rule: The SmartScreen filter for Microsoft Edge 
         must be compare.
@@ -579,7 +581,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare        
 
-    def hardware_device_pfw_compare(self):
+    def hardware_device_pfw_enabled(self):
         """
         Check SV-78207r2_rule: The SmartScreen filter for Microsoft Edge 
         must be compare.
@@ -675,7 +677,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
     
-    def powershell_script_block_logging_compare(self):
+    def powershell_script_block_logging_enabled(self):
         """
         Check SV-83411r1_rule: PowerShell script block logging must be compare.
 
@@ -867,7 +869,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
     
-    def screen_saver_compare(self):  
+    def screen_saver_enabled(self):  
         """
         Check SV-78325r1_rule: A screen saver must be compare on the system.
 
@@ -1344,7 +1346,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
-    def uac_admin_mode_compare(self):
+    def uac_admin_mode_enabled(self):
         """
         Check SV-78319r1_rule: User Account Control must run all administrators in Admin Approval Mode, enabling UAC.
 
@@ -1391,7 +1393,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
-    def uac_installer_detection_compare(self):
+    def uac_installer_detection_enabled(self):
         """
         Check SV-78315r1_rule: User Account Control must be configured to detect application installations and prompt for elevation.
 
@@ -1458,7 +1460,7 @@ class Windows10SystemAuditor:
 
     def domain_joined_computers_unenumerated(self):
         """
-        Check SV-78121r1_rule: The system must be configured to use SSL to forward error reports.
+        Check SV-78121r1_rule: Connected users on domain-joined computers must not be enumerated.
 
 
         Finding ID: V-63631
@@ -1474,7 +1476,7 @@ class Windows10SystemAuditor:
 
     def max_error_queue_reports_set(self):
         """
-        Check SV-78051r1_rule: The system must be configured to use SSL to forward error reports.
+        Check SV-78051r1_rule: The maximum number of error reports to queue on a system must be configured to 50 or greater.
 
 
         Finding ID: V-63561
@@ -1491,7 +1493,7 @@ class Windows10SystemAuditor:
 
     def security_event_log_size_configuered(self):
         """
-        Check SV-78013r1_rule: The system must be configured to use SSL to forward error reports.
+        Check SV-78013r1_rule: The Security event log size must be configured to 196608 KB or greater.
 
 
         Finding ID: V-63523
@@ -1539,7 +1541,7 @@ class Windows10SystemAuditor:
 
     def user_errmsg_disabled(self):
         """
-        Check SV-77995r1_rule: Administrator accounts must not be enumerated during elevation
+        Check SV-77995r1_rule: The system must be configured to prevent the display of error messages to the user.
 
 
         Finding ID: V-63505
@@ -1903,7 +1905,7 @@ class Windows10SystemAuditor:
         return compare    
 
 
-    def audit_policy_subcategories_compare(self):
+    def audit_policy_subcategories_enabled(self):
         """
         Check SV-78125r1_rule: The use of OneDrive for storage must be disabled.
 
@@ -2003,7 +2005,7 @@ class Windows10SystemAuditor:
         return compare    
 
 
-    def uac_approval_mode_compare(self):
+    def uac_approval_mode_enabled(self):
         """
         Check SV-78307r1_rule: User Account Control approval mode for the built-in Administrator must be compare.
 
@@ -2131,7 +2133,6 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare 
 
-
     def dc_sleep_wakeup_password_required(self):
         """
         Check SV-78135r1_rule: Users must be prompted for a password on resume from sleep (on battery).
@@ -2148,8 +2149,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare 
 
-
-    def admin_consent_prompt_compare(self):
+    def admin_consent_prompt_enabled(self):
         """
         Check SV-78309r1_rule: Users must be prompted for a password on resume from sleep (on battery).
 
@@ -2165,8 +2165,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare 
 
-
-    def machine_lockout_compare(self):
+    def machine_lockout_enabled(self):
         """
         Check SV-78447r1_rule: Users must be prompted for a password on resume from sleep (on battery).
 
@@ -2197,10 +2196,9 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare      
 
-
     def restart_automatic_signin_disabled(self):
         """
-        Check SV-77823r1_rule: Printing over HTTP must be prevented.
+        Check SV-77823r1_rule: Automatically signing in the last interactive user after a system-initiated restart must be disabled.
 
         Finding ID: V-63333
 
@@ -2228,7 +2226,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
-    def optional_accounts_compare(self):
+    def optional_accounts_enabled(self):
         """
         Check SV-78149r1_rule: The setting to allow Microsoft accounts to be optional for modern style apps must be compare.
 
@@ -2258,7 +2256,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare        
 
-    def password_reset_compare(self):
+    def password_reset_enabled(self):
         """
         Check SV-78143r1_rule: The computer account password must not be prevented from being reset.
 
@@ -2319,7 +2317,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
-    def forced_logoff_compare(self):
+    def forced_logoff_enabled(self):
         """
         Check SV-78217r1_rule: Users must be forcibly disconnected when their logon hours expire.
 
@@ -2366,7 +2364,7 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
-    def imcp_redirect_compare(self):
+    def imcp_redirect_enabled(self):
         """
         Check SV-78053r1_rule: The system must be configured to prevent Internet Control Message Protocol (ICMP) redirects from overriding Open Shortest Path First (OSPF) generated routes.
         
@@ -2425,7 +2423,6 @@ class Windows10SystemAuditor:
         val = 1
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
-
 
 if __name__ == "__main__":
         auditor = Windows10SystemAuditor()
