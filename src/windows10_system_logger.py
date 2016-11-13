@@ -4,7 +4,9 @@
 DEFAULT_CONFIG = "Windows10SystemLog.txt"
 
 class Windows10SystemLogger:
-    """Windows10SystemLogger writes error messages to the Windows10 System log file for every rule in the Windows10 STIG that is violated.
+    """
+    Windows10SystemLogger writes error messages to the Windows10 System log 
+    file for every rule in the Windows10 STIG that is violated.
     """
 
     def __init__(self, filename=DEFAULT_CONFIG):
@@ -99,7 +101,7 @@ class Windows10SystemLogger:
     def emet_deephooks_set_errmsg(self, success):
         if not success:
            self.log.write("Check SV-77901r2_rule: ")
-           self.log.write("The Enhanced Mitigation Experience Toolkit (EMET) system-wide Structured Exception Handler Overwrite Protection (SEHOP) must be configured to Application Opt Out.\n\n")
+           self.log.write("The Enhanced Mitigation Experience Toolkit (EMET) Default Actions and Mitigations Settings must enable Deep Hooks.\n\n")
 
     def unencrypted_passwd_smb_disabled_errmsg(self, success):
         if not success:
@@ -114,7 +116,7 @@ class Windows10SystemLogger:
     def hardware_device_pfw_enabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78207r2_rule: ")
-           self.log.write("The SmartScreen filter for Microsoft Edge must be enabled.\n\n")
+           self.log.write("The use of a hardware security device with Microsoft Passport for Work must be enabled.\n\n")
 
     def smb_packet_signing_set_errmsg(self, success):
         if not success:
@@ -169,23 +171,22 @@ class Windows10SystemLogger:
     def error_reports_generated_errmsg(self, success):
         if not success:
            self.log.write("Check SV-77949r1_rule: ")
-           self.log.write("The machine inactivity limit must be set to 15 minutes, locking the system with the screensaver.\n\n")
+           self.log.write("The system must be configured to generate error reports.\n\n")
 
     def smb_packet_signing_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78197r1_rule: ")
-           self.log.write("The machine inactivity limit must be set to 15 minutes, locking the system with the screensaver.\n\n")
+           self.log.write("The Windows SMB client must be enabled to perform SMB packet signing when possible.\n\n")
 
     def inprivate_browsing_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78195r1_rule: ")
-           self.log.write("The machine inactivity limit must be set to 15 minutes, locking the system with the screensaver.\n\n")
-
+           self.log.write("InPrivate browsing in Microsoft Edge must be disabled.\n\n")
 
     def smb_packet_signing_required_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78193r1_rule: ")
-           self.log.write(" The Windows SMB client must be configured to always perform SMB packet signing.\n\n")
+           self.log.write("The Windows SMB client must be configured to always perform SMB packet signing.\n\n")
 
     def app_override_disabled_errmsg(self, success):
         if not success:
@@ -225,7 +226,7 @@ class Windows10SystemLogger:
     def winrm_runas_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-77865r1_rule: ")
-           self.log.write("Enhanced anti-spoofing when available must be enabled for facial recognition.\n\n")
+           self.log.write("The Windows Remote Management (WinRM) service must not store RunAs credentials.\n\n")
 
     def zone_info_saved_errmsg(self, success):
         if not success:
@@ -250,22 +251,22 @@ class Windows10SystemLogger:
     def lock_screen_slide_shows_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78039r1_rule: ")
-           self.log.write("The system must be configured to queue error reports until a local or DOD-wide collector is available.\n\n")
+           self.log.write("The display of slide shows on the lock screen must be disabled.\n\n")
 
     def winrm_unencrypted_traffic_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-77859r1_rule: ")
-           self.log.write("The system must be configured to queue error reports until a local or DOD-wide collector is available.\n\n")
+           self.log.write("The Windows Remote Management (WinRM) service must not allow unencrypted traffic.\n\n")
 
     def smartscreen_admin_aproval_required_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78175r1_rule: ")
-           self.log.write("The Windows SmartScreen must be configured to require approval from an administrator before running downloaded \n\n")
+           self.log.write("The Windows SmartScreen must be configured to require approval from an administrator before running downloaded unknown software.\n\n")
 
     def windows_telemetry_data_set_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78173r1_rule: ")
-           self.log.write("The Windows SmartScreen must be configured to require approval from an administrator before running downloaded unknown software.\n\n")
+           self.log.write("Windows Telemetry must be configured to the lowest level of data sent to Microsoft.\n\n")
 
     def classic_security_model_set_errmsg(self, success):
         if not success:
@@ -290,7 +291,7 @@ class Windows10SystemLogger:
     def pku2u_authentication_disabled_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78099r1_rule: ")
-           self.log.write("Group Policy objects must be reprocessed even if they have not changed.\n\n")
+           self.log.write("PKU2U authentication using online identities must be prevented.\n\n")
 
     def powershell_script_block_invocation_logging_errmsg(self, success):
         if not success:
@@ -543,7 +544,7 @@ class Windows10SystemLogger:
     def ntlm_ssp_server_session_security_configuered_errmsg(self, success):
         if not success:
            self.log.write("Check SV-78297r1_rule: ")
-           self.log.write("The system must be configured to meet the minimum session security requirement for NTLM SSP based clients.\n\n")
+           self.log.write("The system must be configured to meet the minimum session security requirement for NTLM SSP based servers.\n\n")
 
     def winrm_digest_authentication_disabled_errmsg(self, success):
         if not success:

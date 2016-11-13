@@ -4,7 +4,6 @@ from winreg_comparator import WinRegComparator
 from _winreg import *
 
 
-
 class Windows10SystemAuditor:
     def __init__(self):
         self.comparator = WinRegComparator()
@@ -13,6 +12,8 @@ class Windows10SystemAuditor:
         """
         Entry function to all system defined requirments by the
         Windows 10 STIG.
+        
+        :returns: string -- filename of the log file
         """
         logger = Windows10SystemLogger()
 
@@ -96,9 +97,6 @@ class Windows10SystemAuditor:
 
         result = self.strong_session_key_required()
         logger.strong_session_key_required_errmsg(result)
-
-        result = self.tcp_port_set()
-        logger.tcp_port_set_errmsg(result)
 
         result = self.screen_saver_set()
         logger.screen_saver_set_errmsg(result)
@@ -256,7 +254,6 @@ class Windows10SystemAuditor:
         result = self.ignore_edge_warnings_disabled()
         logger.ignore_edge_warnings_disabled_errmsg(result)
 
-
         result = self.wizard_provider_dl_disabled()
         logger.wizard_provider_dl_disabled_errmsg(result)
 
@@ -314,7 +311,6 @@ class Windows10SystemAuditor:
         result = self.local_user_enumeration_disabled()
         logger.local_user_enumeration_disabled_errmsg(result)
 
-
         result = self.emet_banned_functions_disabled()
         logger.emet_banned_functions_disabled_errmsg(result)
 
@@ -361,11 +357,10 @@ class Windows10SystemAuditor:
         logger.remote_desktop_client_password_unsaved_errmsg(result)
 
         result = self.remote_desktop_client_password_unsaved()
-        logger.dc_sleep_wakeup_password_required_errmsg(result)
+        logger.remote_desktop_client_password_unsaved_errmsg(result)
 
         result = self.dc_sleep_wakeup_password_required()   
         logger.dc_sleep_wakeup_password_required_errmsg(result)
-
 
         result = self.admin_consent_prompt_enabled() 
         logger.admin_consent_prompt_enabled_errmsg(result)
@@ -424,8 +419,6 @@ class Windows10SystemAuditor:
         filename = logger.get_filename()
         del logger
         return filename
-
-
 
     def lan_manager_hash_disabled(self):
         """
@@ -670,11 +663,11 @@ class Windows10SystemAuditor:
 
     def emet_deephooks_set(self):
         """
-        Check SV-77881r3_rule: The Enhanced Mitigation Experience Toolkit 
-        (EMET) system-wide Structured Exception Handler Overwrite Protection
-        (SEHOP) must be configured to Application Opt Out.
+        Check SV-77907r2_rule: The Enhanced Mitigation Experience Toolkit 
+        (EMET) Default Actions and Mitigations Settings must enable Deep 
+        Hooks.
 
-        Finding ID: V-63391
+        Finding ID: V-63417
 
         :returns: int -- True if criteria met, False otherwise
         """
@@ -719,8 +712,7 @@ class Windows10SystemAuditor:
 
     def hardware_device_pfw_enabled(self):
         """
-        Check SV-78207r2_rule: The SmartScreen filter for Microsoft Edge 
-        must be compare.
+        Check SV-78207r2_rule: The use of a hardware security device with Microsoft Passport for Work must be enabled.
 
         Finding ID: V-63717
 
@@ -860,22 +852,6 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
-    def tcp_port_set(self):
-        """
-        Check SV-78019r1_rule: The system must be configured to send 
-        error reports on TCP port 1232.
-
-        Finding ID: V-63529
-
-        :returns: int -- True if criteria met, False otherwise
-        """
-        key = HKEY_LOCAL_MACHINE
-        subkey = r"SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting"
-        key_val = "CorporateWerPortNumber"
-        val = 1232
-        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return compare
-
     def screen_saver_set(self):
         """
         Check SV-78159r1_rule: The machine inactivity limit must be 
@@ -894,8 +870,7 @@ class Windows10SystemAuditor:
 
     def error_reports_generated(self):
         """
-        Check SV-77949r1_rule: The machine inactivity limit must be 
-        set to 15 minutes, locking the system with the screensaver.
+        Check SV-77949r1_rule: The system must be configured to generate error reports.
 
         Finding ID: V-63461
 
@@ -910,8 +885,7 @@ class Windows10SystemAuditor:
 
     def smb_packet_signing(self):	
         """
-        Check SV-78197r1_rule: The machine inactivity limit must be 
-        set to 15 minutes, locking the system with the screensaver.
+        Check SV-78197r1_rule: The Windows SMB client must be enabled to perform SMB packet signing when possible.
 
         Finding ID: V-63707
 
@@ -926,8 +900,7 @@ class Windows10SystemAuditor:
 
     def inprivate_browsing_disabled(self):	
         """
-        Check SV-78195r1_rule: The machine inactivity limit must be 
-        set to 15 minutes, locking the system with the screensaver.
+        Check SV-78195r1_rule: InPrivate browsing in Microsoft Edge must be disabled.
 
         Finding ID: V-63705
 
@@ -1071,8 +1044,7 @@ class Windows10SystemAuditor:
 
     def winrm_runas_disabled(self):
         """
-        Check SV-77865r1_rule: Enhanced anti-spoofing when 
-        available must be compare for facial recognition.
+        Check SV-77865r1_rule: The Windows Remote Management (WinRM) service must not store RunAs credentials.
 
         Finding ID: V-63375
 
@@ -1135,8 +1107,7 @@ class Windows10SystemAuditor:
     
     def queue_error_reports_disabled(self):
         """
-        Check SV-78037r1_rule: The system must be configured to queue 
-        error reports until a local or DOD-wide collector is available.
+        Check SV-78037r1_rule: The display of slide shows on the lock screen must be disabled.
 
         Finding ID: V-63547
 
@@ -1167,8 +1138,7 @@ class Windows10SystemAuditor:
 
     def winrm_unencrypted_traffic_disabled(self):
         """
-        Check SV-77859r1_rule: The system must be configured to queue 
-        error reports until a local or DOD-wide collector is available.
+        Check SV-77859r1_rule: The Windows Remote Management (WinRM) service must not allow unencrypted traffic.
 
         Finding ID: V-63369
 
@@ -1200,9 +1170,7 @@ class Windows10SystemAuditor:
 
     def windows_telemetry_data_set(self):
         """
-        Check SV-78173r1_rule: The Windows SmartScreen must be configured to 
-        require approval from an administrator before running downloaded 
-        unknown software.
+        Check SV-78173r1_rule: Windows Telemetry must be configured to the lowest level of data sent to Microsoft.
 
         Finding ID: V-63683
 
@@ -1283,8 +1251,7 @@ class Windows10SystemAuditor:
 
     def pku2u_authentication_disabled(self):
         """
-        Check SV-78257r1_rule: Group Policy objects must be reprocessed 
-        even if they have not changed.
+        Check SV-78257r1_rule: PKU2U authentication using online identities must be prevented.
 
         Finding ID: V-63767
 
@@ -1580,7 +1547,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78015r1_rule: The system must be configured to use SSL to forward error reports.
 
-
         Finding ID: V-63525
 
         :returns: int -- True if criteria met, False otherwise
@@ -1597,7 +1563,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78121r1_rule: Connected users on domain-joined computers must not be enumerated.
 
-
         Finding ID: V-63631
 
         :returns: int -- True if criteria met, False otherwise
@@ -1612,7 +1577,6 @@ class Windows10SystemAuditor:
     def max_error_queue_reports_set(self):
         """
         Check SV-78051r1_rule: The maximum number of error reports to queue on a system must be configured to 50 or greater.
-
 
         Finding ID: V-63561
 
@@ -1630,7 +1594,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78013r1_rule: The Security event log size must be configured to 196608 KB or greater.
 
-
         Finding ID: V-63523
 
         :returns: int -- True if criteria met, False otherwise
@@ -1645,7 +1608,6 @@ class Windows10SystemAuditor:
     def rss_feed_attachements_disabled(self):
         """
         Check SV-78233r1_rule: Attachments must be prevented from being downloaded from RSS feeds.
-
 
         Finding ID: V-63743
 
@@ -1662,7 +1624,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78169r1_rule: Administrator accounts must not be enumerated during elevation
 
-
         Finding ID: V-63679
 
         :returns: int -- True if criteria met, False otherwise
@@ -1677,7 +1638,6 @@ class Windows10SystemAuditor:
     def user_errmsg_disabled(self):
         """
         Check SV-77995r1_rule: The system must be configured to prevent the display of error messages to the user.
-
 
         Finding ID: V-63505
 
@@ -1694,7 +1654,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78189r1_rule: Users must not be allowed to ignore SmartScreen filter warnings for malicious websites in Microsoft Edge.
 
-
         Finding ID: V-63699
 
         :returns: int -- True if criteria met, False otherwise
@@ -1709,7 +1668,6 @@ class Windows10SystemAuditor:
     def wizard_provider_dl_disabled(self):
         """
         Check SV-78111r1_rule: Web publishing and online ordering wizards must be prevented from downloading a list of providers.
-
 
         Finding ID: V-63621
 
@@ -1726,7 +1684,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78075r1_rule: Connections to non-domain networks when connected to a domain authenticated network must be blocked.
 
-
         Finding ID: V-63585
 
         :returns: int -- True if criteria met, False otherwise
@@ -1741,7 +1698,6 @@ class Windows10SystemAuditor:
     def nui_disabled(self):
         """
         Check SV-78119r1_rule: The network selection user interface (UI) must not be displayed on the logon screen.
-
 
         Finding ID: V-63629
         
@@ -1758,7 +1714,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78231r1_rule: Remote Desktop Services must be configured with the client connection encryption set to the required level.
 
-
         Finding ID: V-63741
         
         :returns: int -- True if criteria met, False otherwise
@@ -1773,7 +1728,6 @@ class Windows10SystemAuditor:
     def screen_saver_passwd_required(self):
         """
         Check SV-78327r1_rule: The screen saver must be password protected.
-
 
         Finding ID: V-63837
         
@@ -1838,7 +1792,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78029r1_rule: The system must be configured to store all data in the error report archive.
 
-
         Finding ID: V-63539
 
         :returns: int -- True if criteria met, False otherwise
@@ -1854,7 +1807,6 @@ class Windows10SystemAuditor:
     def uac_elevation_requests_disabled(self):
         """
         Check SV-78311r1_rule: User Account Control must automatically deny elevation requests for standard users.
-
 
         Finding ID: V-63821
 
@@ -1916,7 +1868,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78225r1_rule: The service principal name (SPN) target name validation level must be configured to Accept if provided by client.
 
-
         Finding ID: V-63735
 
         :returns: int -- True if criteria met, False otherwise
@@ -1931,7 +1882,6 @@ class Windows10SystemAuditor:
     def rsd_passwd_prompt_required(self):
         """
         Check SV-78223r1_rule: Remote Desktop Services must always prompt a client for passwords upon connection.
-
 
         Finding ID: V-63733
 
@@ -1978,7 +1928,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78127r1_rule: Signing in using a PIN must be turned off.
 
-
         Finding ID: V-63637
 
         :returns: int -- True if criteria met, False otherwise
@@ -1995,7 +1944,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78123r1_rule: Local users on domain-joined computers must not be enumerated.
 
-
         Finding ID: V-63633
 
         :returns: int -- True if criteria met, False otherwise
@@ -2011,7 +1959,6 @@ class Windows10SystemAuditor:
         """
         Check SV-77923r2_rule: The Enhanced Mitigation Experience Toolkit (EMET) Default Actions and Mitigations Settings must enable Banned Functions.
 
-
         Finding ID: V-63433
 
         :returns: int -- True if criteria met, False otherwise
@@ -2026,7 +1973,6 @@ class Windows10SystemAuditor:
     def onedrive_storage_disabled(self):
         """
         Check SV-78215r1_rule: The use of OneDrive for storage must be disabled.
-
 
         Finding ID: V-63725
 
@@ -2044,7 +1990,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78125r1_rule: Audit policy using subcategories must be enabled.
 
-
         Finding ID: V-63635
 
         :returns: int -- True if criteria met, False otherwise
@@ -2060,7 +2005,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78293r1_rule: The system must be configured to the required LDAP client signing level.
 
-
         Finding ID: V-63803
 
         :returns: int -- True if criteria met, False otherwise
@@ -2072,11 +2016,9 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare    
 
-
     def ntlm_ssp_client_session_security_configuered(self):
         """
         Check SV-78295r1_rule: The system must be configured to meet the minimum session security requirement for NTLM SSP based clients.
-
 
         Finding ID: V-63805
 
@@ -2091,8 +2033,7 @@ class Windows10SystemAuditor:
 
     def ntlm_ssp_server_session_security_configuered(self):
         """
-        Check SV-78297r1_rule: The system must be configured to meet the minimum session security requirement for NTLM SSP based clients.
-
+        Check SV-78297r1_rule: The system must be configured to meet the minimum session security requirement for NTLM SSP based servers.
 
         Finding ID: V-63807
 
@@ -2105,12 +2046,9 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare    
 
-
-
     def winrm_digest_authentication_disabled(self):
         """
         Check SV-77831r1_rule: The Windows Remote Management (WinRM) client must not use Digest authentication.
-
 
         Finding ID: V-63341
 
@@ -2126,7 +2064,6 @@ class Windows10SystemAuditor:
     def command_line_creation_event_logged(self):
         """
         Check SV-83409r1_rule: Command line data must be included in process creation events.
-
 
         Finding ID: V-68817
 
@@ -2144,7 +2081,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78307r1_rule: User Account Control approval mode for the built-in Administrator must be compare.
 
-
         Finding ID: V-63817
 
         :returns: int -- True if criteria met, False otherwise
@@ -2159,7 +2095,6 @@ class Windows10SystemAuditor:
     def ac_sleep_wakeup_password_required(self):
         """
         Check SV-78139r1_rule: The user must be prompted for a password on resume from sleep (plugged in).
-
 
         Finding ID: V-63649
 
@@ -2176,7 +2111,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78303r1_rule: The system must be configured to require case insensitivity for non-Windows subsystems.
 
-
         Finding ID: V-63813
 
         :returns: int -- True if criteria met, False otherwise
@@ -2192,7 +2126,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78301r1_rule: The system must be configured to use FIPS-compliant algorithms for encryption, hashing, and signing.
 
-
         Finding ID: V-63811
 
         :returns: int -- True if criteria met, False otherwise
@@ -2207,7 +2140,6 @@ class Windows10SystemAuditor:
     def outgoing_secure_traffic_encrypted(self):
         """
         Check SV-78133r1_rule: Outgoing secure channel traffic must be encrypted when possible.
-
 
         Finding ID: V-63643
 
@@ -2255,8 +2187,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78219r1_rule: Passwords must not be saved in the Remote Desktop Client.
 
-
-
         Finding ID: V-63729
 
         :returns: int -- True if criteria met, False otherwise
@@ -2271,7 +2201,6 @@ class Windows10SystemAuditor:
     def dc_sleep_wakeup_password_required(self):
         """
         Check SV-78135r1_rule: Users must be prompted for a password on resume from sleep (on battery).
-
 
         Finding ID: V-63645
 
@@ -2288,7 +2217,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78309r1_rule: User Account Control must, at minimum, prompt administrators for consent on the secure desktop.
 
-
         Finding ID: V-63819
 
         :returns: int -- True if criteria met, False otherwise
@@ -2303,7 +2231,6 @@ class Windows10SystemAuditor:
     def machine_lockout_enabled(self):
         """
         Check SV-78447r1_rule: The machine account lockout threshold must be set to 10 on systems with BitLocker enabled.
-
 
         Finding ID: V-63957
 

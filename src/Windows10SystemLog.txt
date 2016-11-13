@@ -1,0 +1,230 @@
+#########################
+
+Windows10 System Audit Findings
+
+Check SV-78141r1_rule: Solicited Remote Assistance must not be allowed.
+
+Check SV-77815r1_rule: The Windows Installer Always install with elevated privileges must be disabled.
+
+Check SV-78157r1_rule: Autoplay must be turned off for non-volume devices.
+
+Check SV-78163r1_rule: Autoplay must be disabled for all drives.
+
+Check SV-78163r1_rule: The default autorun behavior must be configured to prevent autorun commands.
+
+Check SV-83445r1_rule: Structured Exception Handling Overwrite Protection (SEHOP) must be turned on.
+
+Check SV-78299r1_rule: The Recovery Console option must be set to prevent automatic logon to the system.
+
+Check SV-78291r1_rule: The LanMan authentication level must be set to send NTLMv2 response only, and to refuse LM and NTLM.
+
+Check SV-78287r1_rule: The Windows Remote Management (WinRM) service must not use Basic authentication.
+
+Check SV-78287r1_rule: Anonymous enumeration of shares must be restricted..
+
+Check SV-78287r1_rule: The Windows Remote Management (WinRM) service must not use Basic authentication.
+
+Check SV-77901r2_rule: The Enhanced Mitigation Experience Toolkit (EMET) system-wide Structured Exception Handler Overwrite Protection (SEHOP) must be configured to Application Opt Out.
+
+Check SV-77901r2_rule: The Enhanced Mitigation Experience Toolkit (EMET) Default Actions and Mitigations Settings must enable Deep Hooks.
+
+Check SV-78203r1_rule: The SmartScreen filter for Microsoft Edge must be enabled.
+
+Check SV-78207r2_rule: The use of a hardware security device with Microsoft Passport for Work must be enabled.
+
+Check SV-78209r1_rule: The Windows SMB server must be configured to always perform SMB packet signing.
+
+Check SV-78145r1_rule:  Client computers must be required to authenticate for RPC communication.
+
+Check SV-78147r1_rule: Unauthenticated RPC clients must be restricted from connecting to the RPC server.
+
+Check SV-78009r1_rule: The Application event log size must be configured to 32768 KB or greater.
+
+Check SV-77811r1_rule: Users must be prevented from changing installation options.
+
+Check SV-83411r1_rule: PowerShell script block logging must be enabled.
+
+Check SV-78019r1_rule: The system must be configured to send error reports on TCP port 1232.
+
+Check SV-78159r1_rule: The machine inactivity limit must be set to 15 minutes, locking the system with the screensaver.
+
+Check SV-77949r1_rule: The system must be configured to generate error reports.
+
+Check SV-78195r1_rule: InPrivate browsing in Microsoft Edge must be disabled.
+
+Check SV-78213r1_rule: The Windows SMB server must perform SMB packet signing when possible.
+
+Check SV-78191r1_rule: Users must not be allowed to ignore SmartScreen filter warnings for unverified files in Microsoft Edge.
+
+Check SV-78041r2_rule: Automatic logons must be disabled.
+
+Check SV-78045r1_rule: IPv6 source routing must be configured to highest protection.
+
+Check SV-78325r1_rule: A screen saver must be enabled on the system.
+
+Check SV-78049r1_rule: The system must be configured to prevent IP source routing.
+
+Check SV-77987r1_rule: The system must be configured to collect multiple error reports of the same event type.
+
+Check SV-78167r1_rule: Enhanced anti-spoofing when available must be enabled for facial recognition.
+
+Check SV-77865r1_rule: The Windows Remote Management (WinRM) service must not store RunAs credentials.
+
+Check SV-78287r1_rule: Zone information must be preserved when saving attachments.
+
+Check SV-78033r1_rule: The maximum number of error reports to archive on a system must be configured to 100 or greater.
+
+Check SV-78035r1_rule:  Camera access from the lock screen must be disabled.
+
+Check SV-78037r1_rule: The system must be configured to queue error reports until a local or DOD-wide collector is available.
+
+Check SV-78039r1_rule: The display of slide shows on the lock screen must be disabled.
+
+Check SV-77859r1_rule: The Windows Remote Management (WinRM) service must not allow unencrypted traffic.
+
+Check SV-78175r1_rule: The Windows SmartScreen must be configured to require approval from an administrator before running downloaded unknown software.
+
+Check SV-78173r1_rule: Windows Telemetry must be configured to the lowest level of data sent to Microsoft.
+
+Check SV-78253r1_rule: Services using Local System that use Negotiate when reverting to NTLM authentication must use the computer identity vs. authenticating anonymously.
+
+Check SV-78253r1_rule: NTLM must be prevented from falling back to a Null session.
+
+Check SV-78099r1_rule: Group Policy objects must be reprocessed even if they have not changed.
+
+Check SV-78099r1_rule: PKU2U authentication using online identities must be prevented.
+
+Check SV-83413r1_rule: PowerShell script block invocation logging must be enabled.
+
+Check SV-78047r1_rule: The system must be configured to add all error reports to the queue.
+
+Check SV-78065r1_rule: The system must be configured to permit the default consent levels of Windows Error Reporting to override any other consent policy setting.
+
+Check SV-78061r1_rule: The system must be configured to automatically consent to send all data requested by a local or DOD-wide error collection site.
+
+Check SV-78211r1_rule: The minimum pin length for Microsoft Passport for Work must be 6 characters or greater.
+
+Check SV-78241r1_rule: Indexing of encrypted files must be turned off.
+
+Check SV-78243r1_rule: The system must be configured to prevent the storage of passwords and credentials.
+
+Check SV-78087r1_rule: Local administrator accounts must have their privileged token filtered to prevent elevated privileges from being used over the network on domain systems.
+
+Check SV-78105r1_rule: Downloading print driver packages over HTTP must be prevented.
+
+Check SV-78081r1_rule: Wi-Fi Sense must be disabled.
+
+Check SV-77915r2_rule: The Enhanced Mitigation Experience Toolkit (EMET) Default Actions and Mitigations Settings must enable Anti Detours.
+
+Check SV-78017r1_rule: The System event log size must be configured to 32768 KB or greater.
+
+User Account Control must only elevate UIAccess applications that are installed in secure locations.
+
+Check SV-78315r1_rule: User Account Control must be configured to detect application installations and prompt for elevation.
+
+Check SV-78315r1_rule: Kerberos encryption types must be configured to prevent the use of DES and RC4 encryption suites.
+
+Check SV-78213r1_rule: The Windows SMB server must perform SMB packet signing when possible.
+
+Check SV-78015r1_rule: The system must be configured to use SSL to forward error reports.
+
+Check SV-78015r1_rule: Connected users on domain-joined computers must not be enumerated.
+
+Check SV-78051r1_rule: The maximum number of error reports to queue on a system must be configured to 50 or greater.
+
+Check SV-78051r1_rule: The Security event log size must be configured to 196608 KB or greater.
+
+Check SV-78233r1_rule: Attachments must be prevented from being downloaded from RSS feeds.
+
+Check SV-78169r1_rule: Administrator accounts must not be enumerated during elevation.
+
+Check SV-77995r1_rule: The system must be configured to prevent the display of error messages to the user.
+
+Check SV-78189r1_rule: Users must not be allowed to ignore SmartScreen filter warnings for malicious websites in Microsoft Edge.
+
+Check SV-78189r1_rule: Web publishing and online ordering wizards must be prevented from downloading a list of providers.
+
+Check SV-78075r1_rule: Connections to non-domain networks when connected to a domain authenticated network must be blocked.
+
+Check SV-78119r1_rule: The network selection user interface (UI) must not be displayed on the logon screen.
+
+Check SV-78231r1_rule: Remote Desktop Services must be configured with the client connection encryption set to the required level.
+
+Check SV-78231r1_rule: The screen saver must be password protected.
+
+Check SV-78055r1_rule: The system must be configured to attempt to forward queued error reports once a day.
+
+Check SV-78029r1_rule: The system must be configured to store all data in the error report archive.
+
+Check SV-78311r1_rule: User Account Control must automatically deny elevation requests for standard users.
+
+Check SV-78059r1_rule: Insecure logons to an SMB server must be disabled.
+
+Check SV-78025r1_rule: The system must be configured to archive error reports.
+
+Check SV-78227r1_rule: The Remote Desktop Session Host must require secure RPC communications.
+
+Check SV-78225r1_rule:  The service principal name (SPN) target name validation level must be configured to Accept if provided by client.
+
+Check SV-78223r1_rule: Remote Desktop Services must always prompt a client for passwords upon connection.
+
+Check SV-78221r1_rule: Local drives must be prevented from sharing with Remote Desktop Session Hosts.
+
+Check SV-78127r1_rule: Signing in using a PIN must be turned off.
+
+Check SV-78123r1_rule: Local users on domain-joined computers must not be enumerated.
+
+Check SV-77923r2_rule: The Enhanced Mitigation Experience Toolkit (EMET) Default Actions and Mitigations Settings must enable Banned Functions.
+
+Check SV-78215r1_rule: The use of OneDrive for storage must be disabled.
+
+Check SV-78125r1_rule: Audit policy using subcategories must be enabled.
+
+Check SV-78295r1_rule: The system must be configured to meet the minimum session security requirement for NTLM SSP based clients.
+
+Check SV-78297r1_rule: The system must be configured to meet the minimum session security requirement for NTLM SSP based servers.
+
+Check SV-77831r1_rule: The Windows Remote Management (WinRM) client must not use Digest authentication.
+
+Check SV-83409r1_rule: Command line data must be included in process creation events.
+
+Check SV-78307r1_rule: User Account Control approval mode for the built-in Administrator must be enabled.
+
+Check SV-78139r1_rule: The user must be prompted for a password on resume from sleep (plugged in)
+
+Check SV-78301r1_rule: The system must be configured to use FIPS-compliant algorithms for encryption, hashing, and signing.
+
+Check SV-78137r1_rule: Outgoing secure channel traffic must be signed when possible.
+
+Check SV-78219r1_rule: Passwords must not be saved in the Remote Desktop Client.
+
+Check SV-78135r1_rule: Users must be prompted for a password on resume from sleep (on battery).
+
+Check SV-78309r1_rule: The system must be configured to audit Account Logon - Credential Validation failures.
+
+Check SV-78447r1_rule: The machine account lockout threshold must be set to 10 on systems with BitLocker enabled.
+
+Check SV-78113r1_rule: Printing over HTTP must be prevented.
+
+Check SV-77823r1_rule: Automatically signing in the last interactive user after a system-initiated restart must be disabled.
+
+Check SV-77829r1_rule: The Windows Remote Management (WinRM) client must not allow unencrypted traffic.
+
+Check SV-78149r1_rule: he setting to allow Microsoft accounts to be optional for modern style apps must be enabled.
+
+Check SV-78153r1_rule: The Application Compatibility Program Inventory must be prevented from collecting data and sending the information to Microsoft.
+
+Check SV-78177r1_rule: Caching of logon credentials must be limited.
+
+Check SV-78217r1_rule: Turning off File Explorer heap termination on corruption must be disabled.
+
+Check SV-78183r1_rule: Domain Controller authentication must not be required to unlock the workstation.
+
+Check SV-78053r1_rule: The system must be configured to prevent Internet Control Message Protocol (ICMP) redirects from overriding Open Shortest Path First (OSPF) generated routes.
+
+Check SV-78057r1_rule: The system must be configured to ignore NetBIOS name release requests except from WINS servers.
+
+Check SV-78329r1_rule: Toast notifications to the lock screen must be turned off.
+
+#########################
+

@@ -5,7 +5,13 @@ import platform
 
 class Windows10Auditor:
     def __init__(self):
-        pass
+        system = platform.system()
+        release = platform.release()
+
+        if(system != "Windows" and release != "10"):
+        	print(system, release)
+        	print("Operating system not supported for windows 10 audit.")
+        	exit()
 
     def audit(self):
         """
@@ -24,6 +30,12 @@ class Windows10Auditor:
 
 
     def built_output(self, files, filename="Windows10Log.txt"):
+        """
+        Concatenates all the log files in files list into single file
+        with name filename.
+
+        :returns: string -- filename of the log file
+        """
         out_log = open(filename, 'w')
 
         for file in files:

@@ -5,11 +5,9 @@ class WinRegComparator:
 	def __init__(self):
 		pass
 
-	def reg_equals(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):
-		
+	def reg_equals(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):		
 		"""
 		Check if a key with a specific value exists in the windows registry.
-
 
         :param computer_name: The computer whose operating system we are checking.
         :type computer_name: 
@@ -37,9 +35,8 @@ class WinRegComparator:
 			return False
 
 	def reg_less_than(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):
-		
 		"""
-		Check if a key with a specific value exists in the windows registry.
+		Check if a key with a value less than val exists in the windows registry.
 
 
         :param computer_name: The computer whose operating system we are checking.
@@ -67,10 +64,9 @@ class WinRegComparator:
 			print(e)
 			return False
 
-	def reg_greater_than(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):
-		
+	def reg_greater_than(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):	
 		"""
-		Check if a key with a specific value exists in the windows registry.
+		Check if a key with a value greater than val exists in the windows registry.
 
 
         :param computer_name: The computer whose operating system we are checking.
