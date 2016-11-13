@@ -34,7 +34,7 @@ class WinRegComparator:
 			print(e)
 			return False
 
-	def reg_less_than(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):
+	def reg_less_equal_than(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):
 		"""
 		Check if a key with a value less than val exists in the windows registry.
 
@@ -57,16 +57,16 @@ class WinRegComparator:
 			query = QueryValueEx(open_key, key_val)
 			query_val = query[0]
 			equal = False
-			if query_val < val:
+			if query_val <= val:
 				equal = True
 			return equal
 		except Exception as e:
 			print(e)
 			return False
 
-	def reg_greater_than(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):	
+	def reg_greater_equal_than(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):	
 		"""
-		Check if a key with a value greater than val exists in the windows registry.
+		Check if a key with a value greater than or equal to val exists in the windows registry.
 
 
         :param computer_name: The computer whose operating system we are checking.
@@ -87,7 +87,7 @@ class WinRegComparator:
 			query = QueryValueEx(open_key, key_val)
 			query_val = query[0]
 			equal = False
-			if query_val > val:
+			if query_val >= val:
 				equal = True
 			return equal
 		except Exception as e:
