@@ -1,10 +1,21 @@
 
 from windows10_system_logger import Windows10SystemLogger
 from winreg_comparator import WinRegComparator
-from _winreg import *
+
+import platform
+
+
+if platform.system() == "Windows":
+    from _winreg import *
 
 
 class Windows10SystemAuditor:
+
+    """
+    This class currently audits most of the register access configuration
+    functions. My plan is to break it into subclasses which audits specific
+    characteristics of windows 10 system.
+    """
 
     def __init__(self):
         self.comparator = WinRegComparator()
@@ -457,7 +468,6 @@ class Windows10SystemAuditor:
         Check SV-77815r1_rule: The Windows Installer Always install
         with elevated privileges must be disabled.
 
-
         Finding ID: V-63325
 
         :returns: int -- True if criteria met, False otherwise
@@ -489,7 +499,6 @@ class Windows10SystemAuditor:
         """
         Check SV-78249r1_rule: Anonymous access to Named Pipes and
         Shares must be restricted.
-
 
         Finding ID: V-63759
 
@@ -2251,7 +2260,7 @@ class Windows10SystemAuditor:
 
     def dc_sleep_wakeup_password_required(self):
         """
-        Check SV-78135r1_rule: Users must be prompted for a password on resume 
+        Check SV-78135r1_rule: Users must be prompted for a password on resume
         from sleep (on battery).
 
         Finding ID: V-63645
@@ -2267,7 +2276,7 @@ class Windows10SystemAuditor:
 
     def admin_consent_prompt_enabled(self):
         """
-        Check SV-78309r1_rule: User Account Control must, at minimum, prompt 
+        Check SV-78309r1_rule: User Account Control must, at minimum, prompt
         administrators for consent on the secure desktop.
 
         Finding ID: V-63819
@@ -2317,7 +2326,7 @@ class Windows10SystemAuditor:
 
     def restart_automatic_signin_disabled(self):
         """
-        Check SV-77823r1_rule: Automatically signing in the last interactive 
+        Check SV-77823r1_rule: Automatically signing in the last interactive
         user after a system-initiated restart must be disabled.
 
         Finding ID: V-63333
@@ -2349,7 +2358,7 @@ class Windows10SystemAuditor:
 
     def optional_accounts_enabled(self):
         """
-        Check SV-78149r1_rule: The setting to allow Microsoft accounts to be 
+        Check SV-78149r1_rule: The setting to allow Microsoft accounts to be
         optional for modern style apps must be compare.
 
         Finding ID: V-63659
@@ -2417,7 +2426,7 @@ class Windows10SystemAuditor:
     def apci_data_collection_disabled(self):
         """
         Check SV-78153r1_rule: The Application Compatibility Program Inventory
-        must be prevented from collecting data and sending the information to 
+        must be prevented from collecting data and sending the information to
         Microsoft.
 
         Finding ID: V-63663
@@ -2449,7 +2458,7 @@ class Windows10SystemAuditor:
 
     def forced_logoff_enabled(self):
         """
-        Check SV-78217r1_rule: Users must be forcibly disconnected when their 
+        Check SV-78217r1_rule: Users must be forcibly disconnected when their
         logon hours expire.
 
         Finding ID: V-63727
@@ -2465,7 +2474,7 @@ class Windows10SystemAuditor:
 
     def heap_termination_turnoff_disabled(self):
         """
-        Check SV-78181r1_rule: Turning off File Explorer heap termination on 
+        Check SV-78181r1_rule: Turning off File Explorer heap termination on
         corruption must be disabled.
 
         Finding ID: V-63691
@@ -2481,7 +2490,7 @@ class Windows10SystemAuditor:
 
     def domain_controller_authentication_not_required(self):
         """
-        Check SV-78183r1_rule: Domain Controller authentication must not be 
+        Check SV-78183r1_rule: Domain Controller authentication must not be
         required to unlock the workstation.
 
         Finding ID: V-63693
@@ -2498,7 +2507,7 @@ class Windows10SystemAuditor:
     def imcp_redirect_enabled(self):
         """
         Check SV-78053r1_rule: The system must be configured to prevent Internet
-        Control Message Protocol (ICMP) redirects from overriding Open Shortest 
+        Control Message Protocol (ICMP) redirects from overriding Open Shortest
         Path First (OSPF) generated routes.
 
         Finding ID: V-63563
@@ -2514,7 +2523,7 @@ class Windows10SystemAuditor:
 
     def netbios_name_ignored(self):
         """
-        Check SV-78057r1_rule: The system must be configured to ignore NetBIOS 
+        Check SV-78057r1_rule: The system must be configured to ignore NetBIOS
         name release requests except from WINS servers.
 
         Finding ID: V-63567
@@ -2530,7 +2539,7 @@ class Windows10SystemAuditor:
 
     def toast_notification_disabled(self):
         """
-        Check SV-78329r1_rule: Toast notifications to the lock screen must be 
+        Check SV-78329r1_rule: Toast notifications to the lock screen must be
         turned off.
 
         Finding ID: V-63839
@@ -2561,5 +2570,5 @@ class Windows10SystemAuditor:
         return not compare
 
 if __name__ == "__main__":
-        auditor = Windows10SystemAuditor()
-        auditor.audit()
+    auditor = Windows10SystemAuditor()
+    auditor.audit()

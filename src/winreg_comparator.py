@@ -1,11 +1,19 @@
-from _winreg import *
+import platform
 
+if platform.system() == "Windows":
+    from _winreg import *
 
 class WinRegComparator:
+	"""
+	Provides an interface to the Windows Registry to check if particular 
+	registry configuration key/value pairs exist.
+	"""
+
 	def __init__(self):
 		pass
 
-	def reg_equals(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):		
+	def reg_equals(self, computer_name=None, key=None, 
+		subkey=None, key_val=None, val=-1):		
 		"""
 		Check if a key with a specific value exists in the windows registry.
 
@@ -34,9 +42,11 @@ class WinRegComparator:
 			print(e)
 			return False
 
-	def reg_less_equal_than(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):
+	def reg_less_equal_than(self, computer_name=None, key=None, 
+		subkey=None, key_val=None, val=-1):
 		"""
-		Check if a key with a value less than val exists in the windows registry.
+		Check if a key with a value less than val exists in the windows 
+		registry.
 
 
         :param computer_name: The computer whose operating system we are checking.
@@ -64,9 +74,11 @@ class WinRegComparator:
 			print(e)
 			return False
 
-	def reg_greater_equal_than(self, computer_name=None, key=None, subkey=None, key_val=None, val=-1):	
+	def reg_greater_equal_than(self, computer_name=None, key=None, 
+		subkey=None, key_val=None, val=-1):	
 		"""
-		Check if a key with a value greater than or equal to val exists in the windows registry.
+		Check if a key with a value greater than or equal to val exists in the 
+		windows registry.
 
 
         :param computer_name: The computer whose operating system we are checking.
