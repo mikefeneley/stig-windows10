@@ -27,6 +27,15 @@ class Windows10SystemAuditor:
 
         :returns: string -- filename of the log file
         """
+        files = []
+        winrm_auditor = Windows10WinRMAuditor()
+        filename = winrm_auditor.audit()
+
+        if filename != 0:
+            files.append(filename)
+
+        # Write temporary log file to final output log.
+
         logger = Windows10SystemLogger()
 
         result = self.lan_manager_hash_disabled()
@@ -62,14 +71,8 @@ class Windows10SystemAuditor:
         result = self.lanman_auth_level_set()
         logger.lanman_auth_level_set_errmsg(result)
 
-        result = self.winrm_service_basic_auth_disabled()
-        logger.winrm_service_basic_auth_disabled_errmsg(result)
-
         result = self.annonymous_share_enumeration_disabled()
         logger.annonymous_share_enumeration_disabled_errmsg(result)
-
-        result = self.winrm_client_basic_auth_disabled()
-        logger.winrm_service_basic_auth_disabled_errmsg(result)
 
         result = self.emet_sehop_optout_set()
         logger.emet_sehop_optout_set_errmsg(result)
@@ -146,9 +149,6 @@ class Windows10SystemAuditor:
         result = self.enhanced_antispoofing_set()
         logger.enhanced_antispoofing_set_errmsg(result)
 
-        result = self.winrm_runas_disabled()
-        logger.winrm_runas_disabled_errmsg(result)
-
         result = self.zone_info_saved()
         logger.zone_info_saved_errmsg(result)
 
@@ -163,9 +163,6 @@ class Windows10SystemAuditor:
 
         result = self.lock_screen_slide_shows_disabled()
         logger.lock_screen_slide_shows_disabled_errmsg(result)
-
-        result = self.winrm_unencrypted_traffic_disabled()
-        logger.winrm_unencrypted_traffic_disabled_errmsg(result)
 
         result = self.smartscreen_admin_aproval_required()
         logger.smartscreen_admin_aproval_required_errmsg(result)
@@ -341,9 +338,6 @@ class Windows10SystemAuditor:
         result = self.ntlm_ssp_server_session_security_configuered()
         logger.ntlm_ssp_server_session_security_configuered_errmsg(result)
 
-        result = self.winrm_digest_authentication_disabled()
-        logger.winrm_digest_authentication_disabled_errmsg(result)
-
         result = self.command_line_creation_event_logged()
         logger.command_line_creation_event_logged_errmsg(result)
 
@@ -385,9 +379,6 @@ class Windows10SystemAuditor:
 
         result = self.restart_automatic_signin_disabled()
         logger.restart_automatic_signin_disabled_errmsg(result)
-
-        result = self.winrm_client_unencrypted_traffic_disabled()
-        logger.winrm_client_unencrypted_traffic_disabled_errmsg(result)
 
         result = self.optional_accounts_enabled()
         logger.optional_accounts_enabled_errmsg(result)
@@ -606,21 +597,6 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
-    def winrm_service_basic_auth_disabled(self):
-        """
-        Check SV-77837r1_rule: The Windows Remote Management (WinRM)
-        service must not use Basic authentication.
-
-        Finding ID: V-63347
-
-        :returns: int -- True if criteria met, False otherwise
-        """
-        key = HKEY_LOCAL_MACHINE
-        subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Service"
-        key_val = "AllowBasic"
-        val = 0
-        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return compare
 
     def annonymous_share_enumeration_disabled(self):
         """
@@ -635,22 +611,6 @@ class Windows10SystemAuditor:
         subkey = r"SYSTEM\CurrentControlSet\Control\Lsa"
         key_val = "RestrictAnonymous"
         val = 1
-        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return compare
-
-    def winrm_client_basic_auth_disabled(self):
-        """
-        Check SV-77825r1_rule: The Windows Remote Management (WinRM)
-        client must not use Basic authentication.
-
-        Finding ID: V-63335
-
-        :returns: int -- True if criteria met, False otherwise
-        """
-        key = HKEY_LOCAL_MACHINE
-        subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Client"
-        key_val = "AllowBasic"
-        val = 0
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
@@ -1053,22 +1013,6 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
-    def winrm_runas_disabled(self):
-        """
-        Check SV-77865r1_rule: The Windows Remote Management (WinRM) service
-        must not store RunAs credentials.
-
-        Finding ID: V-63375
-
-        :returns: int -- True if criteria met, False otherwise
-        """
-        key = HKEY_LOCAL_MACHINE
-        subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Service"
-        key_val = "DisableRunAs"
-        val = 1
-        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return compare
-
     def zone_info_saved(self):
         """
         Check SV-77865r1_rule: Zone information must be preserved
@@ -1147,22 +1091,6 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Policies\Microsoft\Windows\Personalization"
         key_val = "NoLockScreenSlideshow"
         val = 1
-        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return compare
-
-    def winrm_unencrypted_traffic_disabled(self):
-        """
-        Check SV-77859r1_rule: The Windows Remote Management (WinRM) service
-        must not allow unencrypted traffic.
-
-        Finding ID: V-63369
-
-        :returns: int -- True if criteria met, False otherwise
-        """
-        key = HKEY_LOCAL_MACHINE
-        subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Service"
-        key_val = "AllowUnencryptedTraffic"
-        val = 0
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
@@ -2098,22 +2026,6 @@ class Windows10SystemAuditor:
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
-    def winrm_digest_authentication_disabled(self):
-        """
-        Check SV-77831r1_rule: The Windows Remote Management (WinRM) client
-        must not use Digest authentication.
-
-        Finding ID: V-63341
-
-        :returns: int -- True if criteria met, False otherwise
-        """
-        key = HKEY_LOCAL_MACHINE
-        subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Client"
-        key_val = "AllowDigest"
-        val = 0
-        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return compare
-
     def command_line_creation_event_logged(self):
         """
         Check SV-83409r1_rule: Command line data must be included in process
@@ -2337,22 +2249,6 @@ class Windows10SystemAuditor:
         subkey = r"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         key_val = "DisableAutomaticRestartSignOn"
         val = 1
-        compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
-        return compare
-
-    def winrm_client_unencrypted_traffic_disabled(self):
-        """
-        Check SV-77829r1_rule: The Windows Remote Management (WinRM) client must
-        not allow unencrypted traffic.
-
-        Finding ID: V-63339
-
-        :returns: int -- True if criteria met, False otherwise
-        """
-        key = HKEY_LOCAL_MACHINE
-        subkey = r"SOFTWARE\Policies\Microsoft\Windows\WinRM\Client"
-        key_val = "AllowUnencryptedTraffic"
-        val = 0
         compare = self.comparator.reg_equals(None, key, subkey, key_val, val)
         return compare
 
