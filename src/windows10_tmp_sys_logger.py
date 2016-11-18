@@ -1,9 +1,9 @@
 
 
-DEFAULT_CONFIG = "Windows10SystemLog.txt"
+DEFAULT_CONFIG = "Windows10TmpSysLog.txt"
 
 
-class Windows10SystemLogger:
+class Windows10TmpSysLogger:
 
     """
     Windows10SystemLogger writes error messages to the Windows10 System log
@@ -14,7 +14,7 @@ class Windows10SystemLogger:
         self.filename = filename
         self.log = open(filename, 'w')
         self.log.write("#########################\n\n")
-        self.log.write("Windows10 System Audit Findings\n\n")
+        self.log.write("Windows10 Tmp Sys Audit Findings\n\n")
 
     def __del__(self):
         print("Write out")
